@@ -30,7 +30,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
 
   return (
     <section
-      className="relative h-[100vh] w-full overflow-hidden"
+      className="relative h-screen w-full overflow-hidden"
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >

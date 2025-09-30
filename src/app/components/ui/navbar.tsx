@@ -310,8 +310,12 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 + i * 0.06 }}
                 className="h-full flex items-center relative"
-                onMouseEnter={name === "Services" ? handleServicesMouseEnter : undefined}
-                onMouseLeave={name === "Services" ? handleServicesMouseLeave : undefined}
+                onMouseEnter={
+                  name === "Services" ? handleServicesMouseEnter : undefined
+                }
+                onMouseLeave={
+                  name === "Services" ? handleServicesMouseLeave : undefined
+                }
               >
                 <Link
                   href={href}
