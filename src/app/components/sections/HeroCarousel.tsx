@@ -30,7 +30,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
 
   return (
     <section
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-[90vh] min-h-[500px] max-h-[900px] overflow-hidden"
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
@@ -57,16 +57,16 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
 
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
+        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
       >
-        <ChevronLeftIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+        <ChevronLeftIcon className="h-6 w-6" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
+        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
       >
-        <ChevronRightIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+        <ChevronRightIcon className="h-6 w-6" />
       </button>
 
       <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center gap-2">
@@ -74,7 +74,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 w-2 rounded-full transition-all duration-300 ${
+            className={`h-2 w-2 sm:h-2 sm:w-2 rounded-full transition-all duration-300 ${
               currentSlide === index ? "bg-white w-6" : "bg-white/50 w-2"
             }`}
           />
@@ -88,12 +88,12 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl px-4 w-full"
+          className="text-center max-w-3xl px-4"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white">
             {items[currentSlide].title}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-4 sm:mb-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl mb-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
             {items[currentSlide].description}
           </p>
           <motion.div
@@ -103,7 +103,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           >
             <Link
               href="/contact"
-              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#8a1650] hover:to-[#2a1a4a] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-bold text-sm sm:text-base shadow-lg transition-all duration-300 uppercase tracking-wide min-w-[140px] sm:min-w-[180px] text-center"
+              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#8a1650] hover:to-[#2a1a4a] text-white px-6 py-3 rounded-md font-bold text-base shadow-lg transition-all duration-300 uppercase tracking-wide min-w-[180px] text-center"
             >
               {items[currentSlide].buttonText}
             </Link>
