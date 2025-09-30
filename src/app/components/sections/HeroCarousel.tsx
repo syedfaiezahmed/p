@@ -81,14 +81,14 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 h-full flex items-start md:items-center justify-center relative z-10 pt-16 md:pt-0">
+      <div className="container mx-auto px-4 h-full flex items-center justify-center relative z-10">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl px-4 w-full mt-8 md:mt-0"
+          className="text-center max-w-3xl px-4 w-full"
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 text-white">
             {items[currentSlide].title}
