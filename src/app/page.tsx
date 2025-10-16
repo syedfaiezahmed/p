@@ -36,7 +36,7 @@ export default function Home() {
     },
     {
       image: "/images/hero image3.jpg",
-      title: "Financial Consulting",
+      title: "Financial Advisory",
       description:
         "Transform your financial future with our expert consulting services, where personalized strategies meet industry insights.",
       buttonText: "Consult Now",
@@ -53,22 +53,22 @@ export default function Home() {
   const services = [
     {
       title: "Bookkeeping Services",
-      description: "Expert finance help—no full-time team needed.",
+      description: "",
       image: "/images/Bookkeeping Services.jpg",
     },
     {
       title: "Comprehensive Financial Planning",
-      description: "Tailored investment solutions for your financial goals.",
+      description: "",
       image: "/images/Financial Planning2.jpg",
     },
     {
       title: "Payroll Management",
-      description: "Streamline your payroll process with our expert solutions.",
+      description: "",
       image: "/images/Payroll4.jpg",
     },
     {
-      title: "Tax Optimization",
-      description: "Minimize liabilities and maximize your returns.",
+      title: "Process Optimization",
+      description: "",
       image: "/images/Business-process-Optimization.jpg",
     },
   ];

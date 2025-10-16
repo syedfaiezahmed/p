@@ -38,11 +38,11 @@ const TestimonialCarousel = () => {
     },
   ];
 
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % (testimonials.length - 1));
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 5000);
 
     return () => clearInterval(timer);
@@ -91,53 +91,30 @@ const TestimonialCarousel = () => {
           </motion.p>
         </div>
 
-        <div className="relative">
+        <div className="relative max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
-              key={currentTestimonial}
+              key={currentIndex}
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              {/* First Testimonial Card */}
               <motion.div
                 whileHover={{ y: -6 }}
                 className="bg-white rounded-lg shadow-md border-t-4 border-[#b62166] hover:shadow-lg transition-all flex flex-col h-full"
               >
-                <div className="p-5 flex flex-col flex-grow">
-                  <StarRating rating={testimonials[currentTestimonial].rating} />
-                  <blockquote className="text-gray-600 mb-3 flex-grow text-center italic">
-                    "{testimonials[currentTestimonial].content}"
+                <div className="p-8 flex flex-col flex-grow">
+                  <StarRating rating={testimonials[currentIndex].rating} />
+                  <blockquote className="text-gray-600 mb-6 flex-grow text-center italic text-lg leading-relaxed">
+                    "{testimonials[currentIndex].content}"
                   </blockquote>
                   <div className="text-center mt-auto">
-                    <div className="font-bold text-[#382460] text-lg">
-                      {testimonials[currentTestimonial].name}
+                    <div className="font-bold text-[#382460] text-xl">
+                      {testimonials[currentIndex].name}
                     </div>
-                    <div className="text-gray-600 text-sm">
-                      {testimonials[currentTestimonial].position}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Second Testimonial Card */}
-              <motion.div
-                whileHover={{ y: -6 }}
-                className="bg-white rounded-lg shadow-md border-t-4 border-[#b62166] hover:shadow-lg transition-all flex flex-col h-full"
-              >
-                <div className="p-5 flex flex-col flex-grow">
-                  <StarRating rating={testimonials[(currentTestimonial + 1) % testimonials.length].rating} />
-                  <blockquote className="text-gray-600 mb-3 flex-grow text-center italic">
-                    "{testimonials[(currentTestimonial + 1) % testimonials.length].content}"
-                  </blockquote>
-                  <div className="text-center mt-auto">
-                    <div className="font-bold text-[#382460] text-lg">
-                      {testimonials[(currentTestimonial + 1) % testimonials.length].name}
-                    </div>
-                    <div className="text-gray-600 text-sm">
-                      {testimonials[(currentTestimonial + 1) % testimonials.length].position}
+                    <div className="text-gray-600 text-sm mt-1">
+                      {testimonials[currentIndex].position}
                     </div>
                   </div>
                 </div>
@@ -146,17 +123,38 @@ const TestimonialCarousel = () => {
           </AnimatePresence>
 
           {/* Navigation Dots */}
-          <div className="flex justify-center mt-6 gap-2">
-            {testimonials.slice(0, testimonials.length - 1).map((_, index) => (
+          <div className="flex justify-center mt-8 gap-2">
+            {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentTestimonial(index)}
+                onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentTestimonial ? "bg-[#b62166]" : "bg-gray-300"
+                  index === currentIndex ? "bg-[#b62166]" : "bg-gray-300"
                 }`}
+                aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}
           </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-6 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all"
+            aria-label="Previous testimonial"
+          >
+            <svg className="w-5 h-5 text-[#382460]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-6 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all"
+            aria-label="Next testimonial"
+          >
+            <svg className="w-5 h-5 text-[#382460]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
     </section>
