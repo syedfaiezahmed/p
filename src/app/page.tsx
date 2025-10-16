@@ -14,6 +14,7 @@ import { ApproachSection } from "./components/sections/ApproachSection";
 import { TeamSection } from "./components/sections/TeamSection";
 import { Footer } from "./components/ui/footer";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
+
 // Main Page Component
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -131,6 +132,7 @@ export default function Home() {
         openIndex={openFaqIndex}
         setOpenIndex={setOpenFaqIndex}
       />
+     
       <Footer />
     </main>
   );
