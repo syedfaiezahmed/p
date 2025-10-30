@@ -14,6 +14,7 @@ import { ApproachSection } from "./components/sections/ApproachSection";
 import { TeamSection } from "./components/sections/TeamSection";
 import { Footer } from "./components/ui/footer";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
+import { CuriousSection } from "./components/sections/CuriousSection";
 
 // Main Page Component
 export default function Home() {
@@ -30,14 +31,14 @@ export default function Home() {
     },
     {
       image: "/images/hero image2.jpg",
-      title: "Financial Guidance",
+      title: "",
       description:
         "Experience unparalleled financial guidance with our expert consulting services. Whether you're an individual or a business, our tailored solutions are designed to empower your financial journey.",
       buttonText: "Start your Journey",
     },
     {
       image: "/images/hero image3.jpg",
-      title: "Financial Advisory",
+      title: "",
       description:
         "Transform your financial future with our expert consulting services, where personalized strategies meet industry insights.",
       buttonText: "Consult Now",
@@ -132,7 +133,7 @@ export default function Home() {
         openIndex={openFaqIndex}
         setOpenIndex={setOpenFaqIndex}
       />
-     
+      <CuriousSection />
       <Footer />
     </main>
   );

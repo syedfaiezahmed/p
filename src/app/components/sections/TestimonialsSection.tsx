@@ -50,11 +50,11 @@ const TestimonialCarousel = () => {
 
   const StarRating = ({ rating }: { rating: number }) => {
     return (
-      <div className="flex gap-1 justify-center mb-2">
+      <div className="flex gap-1 justify-center mb-4">
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className={`w-4 h-4 ${
+            className={`w-5 h-5 ${
               i < rating ? "text-yellow-400" : "text-gray-300"
             }`}
             fill="currentColor"
@@ -68,15 +68,15 @@ const TestimonialCarousel = () => {
   };
 
   return (
-    <section className="py-12 sm:py-16 bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9]">
+    <section className="py-16 bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold text-[#382460] mb-3"
+            className="text-3xl md:text-4xl font-bold text-[#382460] mb-6"
           >
             Client Testimonials
           </motion.h2>
@@ -85,9 +85,10 @@ const TestimonialCarousel = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-xl text-gray-600 max-w-2xl mx-auto"
           >
-            Trusted by industry leaders who have experienced our exceptional financial services
+            Trusted by industry leaders who have experienced our exceptional
+            financial services
           </motion.p>
         </div>
 
@@ -106,14 +107,14 @@ const TestimonialCarousel = () => {
               >
                 <div className="p-8 flex flex-col flex-grow">
                   <StarRating rating={testimonials[currentIndex].rating} />
-                  <blockquote className="text-gray-600 mb-6 flex-grow text-center italic text-lg leading-relaxed">
+                  <blockquote className="text-gray-600 mb-6 flex-grow text-center italic text-xl leading-relaxed">
                     "{testimonials[currentIndex].content}"
                   </blockquote>
                   <div className="text-center mt-auto">
-                    <div className="font-bold text-[#382460] text-xl">
+                    <div className="font-bold text-[#382460] text-2xl">
                       {testimonials[currentIndex].name}
                     </div>
-                    <div className="text-gray-600 text-sm mt-1">
+                    <div className="text-gray-600 text-lg mt-2">
                       {testimonials[currentIndex].position}
                     </div>
                   </div>
@@ -122,13 +123,12 @@ const TestimonialCarousel = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-8 gap-2">
+          <div className="flex justify-center mt-8 gap-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentIndex ? "bg-[#b62166]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
@@ -136,23 +136,48 @@ const TestimonialCarousel = () => {
             ))}
           </div>
 
-          {/* Navigation Arrows */}
           <button
-            onClick={() => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-6 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all"
+            onClick={() =>
+              setCurrentIndex(
+                (prev) => (prev - 1 + testimonials.length) % testimonials.length
+              )
+            }
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 sm:-translate-x-6 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all"
             aria-label="Previous testimonial"
           >
-            <svg className="w-5 h-5 text-[#382460]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-6 h-6 text-[#382460]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button
-            onClick={() => setCurrentIndex((prev) => (prev + 1) % testimonials.length)}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-6 bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-all"
+            onClick={() =>
+              setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+            }
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 sm:translate-x-6 bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all"
             aria-label="Next testimonial"
           >
-            <svg className="w-5 h-5 text-[#382460]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className="w-6 h-6 text-[#382460]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
