@@ -20,7 +20,7 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-[#b62166] tracking-widest text-sm font-semibold"
+            className="text-[#382460] tracking-widest text-sm font-semibold"
           >
             — Solving More: Comprehensive Tools for Your Toughest Challenges
           </motion.h2>
