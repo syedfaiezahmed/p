@@ -48,7 +48,7 @@ export function TeamSection() {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <motion.div

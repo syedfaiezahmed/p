@@ -124,8 +124,8 @@ export default function Home() {
       <AimSection />
       <ServicesSection services={services} />
       <ApproachSection />
-      <BenefitsSection benefits={benefits} />
       <TeamSection />
+      <BenefitsSection benefits={benefits} />
       <CTASection />
       <TestimonialsSection />
       <FAQSection

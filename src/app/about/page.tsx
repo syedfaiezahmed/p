@@ -409,7 +409,7 @@ export default function AboutPage() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
                     Saeed A. Siddiqui
                   </h3>
-                  <p className="text-[#f0c6d8] text-sm">Managing Partner, FCMA</p>
+                  <p className="text-[#f0c6d8] text-sm">Managing Partner</p>
                 </div>
                 <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
                   30+ Years
@@ -481,7 +481,7 @@ export default function AboutPage() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
                     Siraj Ahmed Ansari
                   </h3>
-                  <p className="text-[#f0c6d8] text-sm">Partner, FCMA</p>
+                  <p className="text-[#f0c6d8] text-sm">Partner</p>
                 </div>
                 <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
                   20+ Years
@@ -553,7 +553,7 @@ export default function AboutPage() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
                     Salman Ahmed
                   </h3>
-                  <p className="text-[#f0c6d8] text-sm">Director, FCMA</p>
+                  <p className="text-[#f0c6d8] text-sm">Director</p>
                 </div>
                 <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
                   14+ Years

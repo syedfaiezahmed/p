@@ -20,9 +20,9 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-[#382460] mb-6"
+            className="text-[#b62166] tracking-widest text-sm font-semibold"
           >
-            New Services Available
+            — Solving More: Comprehensive Tools for Your Toughest Challenges
           </motion.h2>
 
           <motion.p
@@ -32,7 +32,8 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#382460] to-[#b62166] bg-clip-text text-transparent max-w-4xl mx-auto leading-tight"
           >
-            Transform Your Business With Expert Solutions
+            Building Strategies that embody lasting success, clear vision, and
+            innovative solutions
           </motion.p>
         </div>
 
