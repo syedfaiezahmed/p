@@ -36,7 +36,7 @@ export function TeamSection() {
       },
     },
     {
-      name: "Asif Ahmed",
+      name: "Muhammad Ali",
       position: "Director",
       image: "/images/team/Asif.jpg",
       social: {
