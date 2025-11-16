@@ -14,33 +14,99 @@ export default function BenefitsSection({
   benefits: BenefitItem[];
 }) {
   const iconComponents = [
-    // Free Consultation - Calendar with checkmark
-    <svg key="0" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
+    // Complimentary Initial Consultation - Handshake icon (modern, clean)
+    <svg
+      key="0"
+      className="h-8 w-8 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l-2 2m0-2l2-2m6 0l2 2m0-2l-2 2M12 14l-2 2m0-2l2-2m0 0l2-2m0 2l-2 2"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M6 12v6h12v-6M6 12l6-6 6 6"
+      />
     </svg>,
-    
-    // Quick Consultations - Clock with lightning
-    <svg key="1" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+
+    // Quick Consultations - Zap/lightning
+    <svg
+      key="1"
+      className="h-8 w-8 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
     </svg>,
-    
-    // Client Portal - Shield with chart
-    <svg key="2" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6" />
+
+    // Client Portal - Shield with user (professional & secure)
+    <svg
+      key="2"
+      className="h-8 w-8 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 2l8 4v6c0 5-3.58 9-8 10-4.42-1-8-5-8-10V6l8-4z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 11a2 2 0 100-4 2 2 0 000 4zm0 1v3"
+      />
     </svg>,
-    
-    // Available 24/7 - Phone with infinity
-    <svg key="3" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 12c.5 1.5 2 2 3.5 1.5s2-2.5 1.5-4-2-3-3.5-2.5-2.5 2-2 3.5" />
-    </svg>
+
+    // Available 24/7 - Clock with sun/moon (modern & clear)
+    <svg
+      key="3"
+      className="h-8 w-8 text-white"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="9"
+        strokeWidth={2}
+        stroke="currentColor"
+        fill="none"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 7v5l3 3"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 2a10 10 0 0110 10 10 10 0 01-10 10"
+      />
+    </svg>,
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <motion.span
@@ -84,7 +150,9 @@ export default function BenefitsSection({
                   {benefit.title}
                 </h3>
 
-                <p className="text-gray-600 text-base leading-relaxed">{benefit.description}</p>
+                <p className="text-gray-600 text-base leading-relaxed">
+                  {benefit.description}
+                </p>
               </motion.div>
             ))}
           </div>

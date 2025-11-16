@@ -102,12 +102,24 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           transition={{ duration: 0.8 }}
           className="text-center max-w-3xl w-full px-4"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">
-            {items[currentSlide].title}
-          </h1>
-          <p className="text-lg sm:text-xl mb-6 text-white/90 max-w-2xl mx-auto leading-relaxed">
+          {/* First slide - original styling */}
+          {items[currentSlide].title && (
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">
+              {items[currentSlide].title}
+            </h1>
+          )}
+
+          {/* Description with enhanced styling for slides without title */}
+          <p
+            className={`mb-6 text-white/90 max-w-2xl mx-auto leading-relaxed ${
+              items[currentSlide].title
+                ? "text-lg sm:text-xl" // First slide - original size
+                : "text-xl sm:text-2xl font-bold" // Other slides - slightly smaller but still bold
+            }`}
+          >
             {items[currentSlide].description}
           </p>
+
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

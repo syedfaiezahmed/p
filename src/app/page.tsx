@@ -126,14 +126,14 @@ export default function Home() {
       <ApproachSection />
       <TeamSection />
       <BenefitsSection benefits={benefits} />
-      <CTASection />
+      <CuriousSection />
       <TestimonialsSection />
       <FAQSection
         faqs={faqs}
         openIndex={openFaqIndex}
         setOpenIndex={setOpenFaqIndex}
       />
-      <CuriousSection />
+      <CTASection />
       <Footer />
     </main>
   );

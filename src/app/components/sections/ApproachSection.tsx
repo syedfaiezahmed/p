@@ -20,7 +20,7 @@ export function ApproachSection() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row items-stretch gap-8 md:gap-12">
-          {/* Image Section - Adjusted height to match text */}
+          {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -55,12 +55,14 @@ export function ApproachSection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <p className="text-[#382460] text-lg leading-[1.8] tracking-wide font-light italic border-l-4 border-[#b62166] pl-6 py-3">
-                  Our approach is grounded in expertise and integrity. What
-                  began as a small consultancy has transformed into a firm
-                  committed to providing tailored financial solutions and
-                  nurturing long-term client relationships.
-                </p>
+                <div className="relative">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-normal border-l-4 border-[#b62166] pl-6 py-3">
+                    Our approach is grounded in expertise and integrity. What
+                    began as a small consultancy has transformed into a firm
+                    committed to providing tailored financial solutions and
+                    nurturing long-term client relationships.
+                  </p>
+                </div>
               </motion.div>
 
               <motion.div
@@ -69,13 +71,15 @@ export function ApproachSection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <p className="text-gray-700 text-base leading-[1.7] tracking-normal font-normal">
-                  Our journey began with a commitment to financial excellence.
-                  From a small team, we've expanded into a consultancy focused
-                  on delivering impactful results and fostering enduring client
-                  partnerships through innovative strategies and proven
-                  methodologies.
-                </p>
+                <div className="relative">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-normal border-r-4 border-[#b62166] pr-4 py-3">
+                    Our journey began with a commitment to financial excellence.
+                    From a small team, we've expanded into a consultancy focused
+                    on delivering impactful results and fostering enduring
+                    client partnerships through innovative strategies and proven
+                    methodologies.
+                  </p>
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -84,3 +88,4 @@ export function ApproachSection() {
     </section>
   );
 }
+  
