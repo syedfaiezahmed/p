@@ -28,31 +28,37 @@ export const FAQSection = ({
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
+          
+          {/* LEFT TEXT */}
           <div className="lg:w-1/2 flex flex-col h-full">
             <div className="lg:pr-12 w-full">
+              
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-4xl font-bold text-[#382460] mb-6"
+                className="text-3xl md:text-4xl font-bold text-[#382460] mb-4 leading-tight"
               >
                 Frequently Asked Questions
               </motion.h2>
+
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="text-lg text-gray-600 mb-8 leading-relaxed"
+                className="text-lg text-gray-600 mb-6 leading-tight"
               >
                 Find quick answers to frequently asked questions about our
                 services, pricing, processes, support, timelines, payment
                 methods, and everything else you need to know instantly.
               </motion.p>
+
             </div>
           </div>
 
+          {/* RIGHT FAQ LIST */}
           <div className="lg:w-1/2 space-y-4">
             {faqs.map((faq, index) => (
               <FAQItem
@@ -68,7 +74,7 @@ export const FAQSection = ({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               viewport={{ once: true }}
-              className="mt-8"
+              className="mt-6"
             >
               <Link
                 href="/contact"
@@ -77,6 +83,7 @@ export const FAQSection = ({
                 Contact Us
               </Link>
             </motion.div>
+
           </div>
         </div>
       </div>

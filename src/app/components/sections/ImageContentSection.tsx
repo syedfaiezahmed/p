@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function ImageContentSection() {
   return (
-    <section className="relative py-8 md:py-10 bg-gradient-to-r from-[#382460cc] to-[#b62166cc] overflow-hidden">
+    <section className="relative py-6 md:py-8 bg-gradient-to-r from-[#382460cc] to-[#b62166cc] overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Centered Heading */}
         <motion.h2
@@ -14,19 +14,19 @@ export function ImageContentSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-2xl md:text-4xl font-bold mb-6 md:mb-8 leading-tight text-center text-white"
+          className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 leading-tight text-center text-white"
         >
           Navigate the Path to Financial Success
         </motion.h2>
 
-        <div className="flex flex-col lg:flex-row items-center gap-4 md:gap-6">
+        <div className="flex flex-col lg:flex-row items-center gap-4">
           {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full lg:w-1/2 h-[250px] md:h-[280px] flex items-center justify-center"
+            className="w-full lg:w-1/2 h-[230px] md:h-[260px] flex items-center justify-center"
           >
             <div className="relative w-full h-full max-w-[500px]">
               <div className="absolute inset-0 rounded-xl border-4 border-white/20 shadow-xl p-2">
@@ -52,8 +52,8 @@ export function ImageContentSection() {
             viewport={{ once: true }}
             className="w-full lg:w-1/2 text-white"
           >
-            <div className="mb-4 md:mb-6">
-              <p className="text-base md:text-lg leading-normal opacity-90">
+            <div className="mb-3">
+              <p className="text-base md:text-lg leading-tight opacity-90">
                 Prospera Consulting empowers our clients to navigate the path to
                 financial success by moving beyond conventional methods to solve
                 complex governance and profitability challenges. We specialize

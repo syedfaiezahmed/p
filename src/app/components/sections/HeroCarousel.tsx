@@ -94,40 +94,44 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 h-full flex items-center justify-center relative z-10">
+      <div className="container mx-auto px-4 h-full flex items-center justify-start relative z-10">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl w-full px-4"
+          className="text-left max-w-3xl w-full px-4"
         >
-          {/* First slide - original styling */}
+          {/* Title */}
           {items[currentSlide].title && (
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white leading-tight">
               {items[currentSlide].title}
             </h1>
           )}
 
-          {/* Description with enhanced styling for slides without title */}
+          {/* Description (3rd slide BIG only) */}
           <p
-            className={`mb-6 text-white/90 max-w-2xl mx-auto leading-relaxed ${
-              items[currentSlide].title
-                ? "text-lg sm:text-xl" // First slide - original size
-                : "text-xl sm:text-2xl font-bold" // Other slides - slightly smaller but still bold
+            className={`mb-3 text-white/90 max-w-2xl leading-snug ${
+              currentSlide === 2
+                ? "text-xl sm:text-3xl font-bold"
+                : items[currentSlide].title
+                ? "text-base sm:text-lg"
+                : "text-lg sm:text-xl font-semibold"
             }`}
           >
             {items[currentSlide].description}
           </p>
 
+          {/* Button LEFT aligned */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="mt-4"
           >
             <Link
               href="/contact"
-              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#8a1650] hover:to-[#2a1a4a] text-white px-6 py-3 rounded-md font-semibold text-base shadow-lg transition-all duration-300 uppercase tracking-wide min-w-[160px] text-center"
+              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#8a1650] hover:to-[#2a1a4a] text-white px-6 py-3 rounded-md font-semibold text-base shadow-lg transition-all duration-300 uppercase tracking-wide min-w-[160px] text-left"
             >
               {items[currentSlide].buttonText}
             </Link>

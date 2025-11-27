@@ -14,7 +14,6 @@ export default function BenefitsSection({
   benefits: BenefitItem[];
 }) {
   const iconComponents = [
-    // Complimentary Initial Consultation - Handshake icon (modern, clean)
     <svg
       key="0"
       className="h-8 w-8 text-white"
@@ -36,7 +35,6 @@ export default function BenefitsSection({
       />
     </svg>,
 
-    // Quick Consultations - Zap/lightning
     <svg
       key="1"
       className="h-8 w-8 text-white"
@@ -52,7 +50,6 @@ export default function BenefitsSection({
       />
     </svg>,
 
-    // Client Portal - Shield with user (professional & secure)
     <svg
       key="2"
       className="h-8 w-8 text-white"
@@ -74,7 +71,6 @@ export default function BenefitsSection({
       />
     </svg>,
 
-    // Available 24/7 - Clock with sun/moon (modern & clear)
     <svg
       key="3"
       className="h-8 w-8 text-white"
@@ -108,6 +104,7 @@ export default function BenefitsSection({
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
+        
         <div className="text-center mb-12">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -150,13 +147,15 @@ export default function BenefitsSection({
                   {benefit.title}
                 </h3>
 
-                <p className="text-gray-600 text-base leading-relaxed">
+                {/* ✅ Tight Line Spacing Applied Here */}
+                <p className="text-gray-600 text-base leading-tight">
                   {benefit.description}
                 </p>
               </motion.div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

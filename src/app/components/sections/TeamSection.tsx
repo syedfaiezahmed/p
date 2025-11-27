@@ -50,6 +50,7 @@ export function TeamSection() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,10 +82,11 @@ export function TeamSection() {
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
             Guided by exceptional leaders with decades of combined expertise,
-            driving innovation and excellence forward
+            driving innovation and excellence forward.
           </motion.p>
         </div>
 
+        {/* Team Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
@@ -99,49 +101,39 @@ export function TeamSection() {
               }}
               viewport={{ once: true }}
               whileHover={{
-                y: -12,
+                y: -10,
                 scale: 1.03,
                 transition: { duration: 0.3 },
               }}
-              className="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col h-full overflow-hidden border border-gray-100"
+              className="group relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col overflow-hidden border border-gray-100"
             >
               <div className="relative w-full h-80 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
                   className="object-cover object-top group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                    const fallback = document.createElement("div");
-                    fallback.className =
-                      "absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#382460] to-[#6d5b93]";
-                    fallback.innerHTML = `<span class="text-white text-4xl font-bold">${member.name.charAt(
-                      0
-                    )}</span>`;
-                    target.parentNode?.appendChild(fallback);
-                  }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-[#382460] mb-2 text-center group-hover:text-[#b62166] transition-colors duration-300">
+              <div className="p-6 flex flex-col items-center">
+                <h3 className="text-xl font-bold text-[#382460] mb-1 text-center group-hover:text-[#b62166] transition-colors duration-300">
                   {member.name}
                 </h3>
-                <p className="text-gray-500 text-center text-base font-medium mb-6">
+                <p className="text-gray-500 text-center text-base font-medium mb-4">
                   {member.position}
                 </p>
 
-                <div className="flex justify-center space-x-4 mt-2">
+                <div className="flex justify-center gap-4 mt-2">
+                  {/* Social Links */}
                   <motion.a
                     href={member.social.linkedin}
                     whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-12 h-12 bg-gray-100 hover:bg-[#0077b5] rounded-full flex items-center justify-center transition-all duration-300 group/social"
+                    className="w-10 h-10 bg-gray-100 hover:bg-[#0077b5] rounded-full flex items-center justify-center transition-all duration-300"
                   >
-                    <span className="text-gray-500 group-hover/social:text-white text-base font-bold">
+                    <span className="text-gray-500 group-hover:text-white text-sm font-bold">
                       in
                     </span>
                   </motion.a>
@@ -149,9 +141,9 @@ export function TeamSection() {
                   <motion.a
                     href={member.social.twitter}
                     whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-12 h-12 bg-gray-100 hover:bg-black rounded-full flex items-center justify-center transition-all duration-300 group/social"
+                    className="w-10 h-10 bg-gray-100 hover:bg-black rounded-full flex items-center justify-center transition-all duration-300"
                   >
-                    <span className="text-gray-500 group-hover/social:text-white text-base">
+                    <span className="text-gray-500 group-hover:text-white text-sm">
                       𝕏
                     </span>
                   </motion.a>
@@ -159,9 +151,9 @@ export function TeamSection() {
                   <motion.a
                     href={`mailto:${member.social.email}`}
                     whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-12 h-12 bg-gray-100 hover:bg-[#b62166] rounded-full flex items-center justify-center transition-all duration-300 group/social"
+                    className="w-10 h-10 bg-gray-100 hover:bg-[#b62166] rounded-full flex items-center justify-center transition-all duration-300"
                   >
-                    <span className="text-gray-500 group-hover/social:text-white text-base">
+                    <span className="text-gray-500 group-hover:text-white text-sm">
                       ✉
                     </span>
                   </motion.a>

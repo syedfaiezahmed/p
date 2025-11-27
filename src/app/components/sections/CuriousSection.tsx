@@ -7,12 +7,13 @@ export function CuriousSection() {
     <section className="py-16 bg-gradient-to-br from-[#382460] to-[#b62166]">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
+          
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-white mb-4"
+            className="text-3xl font-bold text-white mb-3 leading-tight"
           >
             Curious About Our Offerings?
           </motion.h2>
@@ -22,7 +23,7 @@ export function CuriousSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-white/80 mb-8 text-lg"
+            className="text-white/80 mb-6 text-lg leading-tight"
           >
             Let's explore how we can enhance your financial success
           </motion.p>
@@ -50,6 +51,7 @@ export function CuriousSection() {
               Learn More
             </motion.button>
           </motion.div>
+
         </div>
       </div>
     </section>

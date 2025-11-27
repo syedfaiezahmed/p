@@ -7,6 +7,7 @@ export function ApproachSection() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,6 +21,7 @@ export function ApproachSection() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row items-stretch gap-8 md:gap-12">
+          
           {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -49,6 +51,7 @@ export function ApproachSection() {
             className="lg:w-1/2 flex items-center"
           >
             <div className="w-full space-y-8">
+              
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +59,7 @@ export function ApproachSection() {
                 viewport={{ once: true }}
               >
                 <div className="relative">
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-normal border-l-4 border-[#b62166] pl-6 py-3">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-l-4 border-[#b62166] pl-6 py-3">
                     Our approach is grounded in expertise and integrity. What
                     began as a small consultancy has transformed into a firm
                     committed to providing tailored financial solutions and
@@ -72,7 +75,7 @@ export function ApproachSection() {
                 viewport={{ once: true }}
               >
                 <div className="relative">
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed sm:leading-normal border-r-4 border-[#b62166] pr-4 py-3">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-r-4 border-[#b62166] pr-4 py-3">
                     Our journey began with a commitment to financial excellence.
                     From a small team, we've expanded into a consultancy focused
                     on delivering impactful results and fostering enduring
@@ -81,11 +84,12 @@ export function ApproachSection() {
                   </p>
                 </div>
               </motion.div>
+
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
   );
 }
-  
