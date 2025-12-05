@@ -27,9 +27,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
     if (autoPlay) {
       interval = setInterval(nextSlide, 5000);
     }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
+    return () => interval && clearInterval(interval);
   }, [autoPlay, currentSlide]);
 
   return (
@@ -38,7 +36,7 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
-      {/* Background Images */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         {items.map((item, index) => (
           <motion.div
@@ -60,82 +58,77 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
         ))}
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
-        aria-label="Previous slide"
+        className="absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
       >
-        <ChevronLeftIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+        <ChevronLeftIcon className="h-6 w-6" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300"
-        aria-label="Next slide"
+        className="absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
       >
-        <ChevronRightIcon className="h-5 w-5 sm:h-6 sm:w-6" />
+        <ChevronRightIcon className="h-6 w-6" />
       </button>
 
-      {/* Slide Indicators */}
+      {/* Indicators */}
       <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center gap-2">
         {items.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              currentSlide === index
-                ? "bg-white w-6"
-                : "bg-white/50 w-2 hover:bg-white/70"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
+            className={`h-2 rounded-full ${currentSlide === index ? "bg-white w-6" : "bg-white/50 w-2"
+              }`}
           />
         ))}
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 h-full flex items-center justify-start relative z-10">
+      <div className="container mx-auto px-4 h-full flex items-center relative z-10">
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-left max-w-3xl w-full px-4"
+          className={`max-w-3xl w-full px-4 
+            ${currentSlide === 1
+              ? "mx-auto text-center flex flex-col items-center"
+              : "ml-4 sm:ml-8 md:ml-16 text-left"
+            }
+          `}
         >
           {/* Title */}
           {items[currentSlide].title && (
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white">
               {items[currentSlide].title}
             </h1>
           )}
 
-          {/* Description (3rd slide BIG only) */}
+          {/* Description */}
           <p
-            className={`mb-3 text-white/90 max-w-2xl leading-snug ${
-              currentSlide === 2
-                ? "text-xl sm:text-3xl font-bold"
-                : items[currentSlide].title
-                ? "text-base sm:text-lg"
-                : "text-lg sm:text-xl font-semibold"
-            }`}
+            className={`mb-3 text-white/90 leading-snug 
+                ${currentSlide === 1
+                ? "text-center mx-auto text-xl sm:text-2xl font-bold max-w-3xl"
+                : currentSlide === 2
+                  ? "text-xl sm:text-3xl font-bold max-w-2xl text-left"
+                  : "text-base sm:text-lg max-w-2xl text-left"
+              }
+          `}
           >
             {items[currentSlide].description}
           </p>
 
-          {/* Button LEFT aligned */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="mt-4"
-          >
+          {/* Button */}
+          <div className={`mt-4 ${currentSlide === 1 ? "flex justify-center" : ""}`}>
             <Link
               href="/contact"
-              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#8a1650] hover:to-[#2a1a4a] text-white px-6 py-3 rounded-md font-semibold text-base shadow-lg transition-all duration-300 uppercase tracking-wide min-w-[160px] text-left"
+              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] text-white px-6 py-3 rounded-md font-semibold shadow-lg uppercase tracking-wide"
             >
               {items[currentSlide].buttonText}
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

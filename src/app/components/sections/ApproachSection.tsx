@@ -59,7 +59,7 @@ export function ApproachSection() {
                 viewport={{ once: true }}
               >
                 <div className="relative">
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-l-4 border-[#b62166] pl-6 py-3">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-l-4 border-[#b62166] pl-3 py-3">
                     Our approach is grounded in expertise and integrity. What
                     began as a small consultancy has transformed into a firm
                     committed to providing tailored financial solutions and
@@ -75,7 +75,7 @@ export function ApproachSection() {
                 viewport={{ once: true }}
               >
                 <div className="relative">
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-r-4 border-[#b62166] pr-4 py-3">
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-tight border-r-4 border-[#b62166] pl-3 py-3">
                     Our journey began with a commitment to financial excellence.
                     From a small team, we've expanded into a consultancy focused
                     on delivering impactful results and fostering enduring

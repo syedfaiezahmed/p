@@ -38,12 +38,8 @@ export function AimSection() {
           {/* ===== LEFT CONTENT ===== */}
           <div className="space-y-8">
 
-            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-              Our firm blends innovative strategies with established best
-              practices to support you in achieving your financial objectives.
-              We are committed to delivering clear, actionable insights that
-              strengthen your decision-making and help you plan confidently for
-              a prosperous future.
+            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-[1.4] max-w-xl text-justify">
+              Our firm blends innovative strategies with established best practices to support you in achieving your financial objectives. We are committed to delivering clear, actionable insights that strengthen your decision-making and help you plan confidently for a prosperous future. Through the use of advanced analysis, industry knowledge, and a client-centered approach, we ensure every recommendation is both relevant and effective. This combination allows us to provide solutions that promote sustainable growth, enhance financial resilience, and build long-term confidence in your overall financial direction.
             </p>
 
             {/* IMAGE */}
@@ -60,14 +56,9 @@ export function AimSection() {
           </div>
 
           {/* ===== RIGHT CONTENT (UPPER) ===== */}
-          <div className="lg:pt-10">
-            <p className="text-white text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
-              With a strong foundation in financial expertise, we provide
-              tailored consulting services to help you achieve your financial
-              goals. Our focus is on delivering strategic advice that not only
-              enhances your financial health but also empowers you to make
-              informed decisions. Each consultation is designed to meet your
-              unique needs while ensuring your financial future is secure.
+          <div className="lg:pt-30">
+            <p className="text-white text-sm sm:text-base md:text-lg leading-[1.4] max-w-xl text-justify">
+              With a strong foundation in financial expertise, we provide tailored consulting services to help you achieve your financial goals. Our focus is on delivering strategic advice that not only enhances your financial health but also empowers you to make informed decisions. Each consultation is designed to meet your unique needs while ensuring your financial future is secure. By combining industry insights, data-driven analysis, and a personalized approach, we guide you through complex financial challenges and opportunities, enabling long-term stability, sustainable growth, and greater confidence in every decision you make.
             </p>
           </div>
 

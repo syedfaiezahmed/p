@@ -53,7 +53,7 @@ export function ImageContentSection() {
             className="w-full lg:w-1/2 text-white"
           >
             <div className="mb-3">
-              <p className="text-base md:text-lg leading-tight opacity-90">
+              <p className="text-base md:text-lg leading-[1.4] opacity-90">
                 Prospera Consulting empowers our clients to navigate the path to
                 financial success by moving beyond conventional methods to solve
                 complex governance and profitability challenges. We specialize
