@@ -185,10 +185,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/erp"
+                    href="/contact?service=erp-integration"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -267,10 +267,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/automation"
+                    href="/contact?service=process-automation"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -349,10 +349,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/analytics"
+                    href="/contact?service=data-analytics"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -437,10 +437,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/transformation"
+                    href="/contact?service=digital-finance-transformation"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -519,10 +519,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/cybersecurity"
+                    href="/contact?service=cybersecurity"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -601,10 +601,10 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/digital-services/blockchain"
+                    href="/contact?service=blockchain-solutions"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>

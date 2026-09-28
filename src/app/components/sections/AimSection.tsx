@@ -5,65 +5,57 @@ import Image from "next/image";
 
 export function AimSection() {
   return (
-    <section className="relative bg-white py-16 md:py-24 overflow-hidden">
-
-      {/* ✅ WHITE HR 3px AT SECTION START */}
-      <hr className="absolute top-0 left-0 w-full border-t-[3px] border-white z-20" />
-
-      {/* ✅ PINK RECTANGLE — 50% HEIGHT OVER WHITE BG */}
-      <div className="absolute top-0 left-0 w-full h-[70%] bg-gradient-to-br from-[#382460] to-[#b62166] z-0" />
+    <section className="relative bg-gradient-to-br from-[#382460] to-[#b62166] py-16 md:py-24 overflow-hidden text-white">
+      {/* Subtle decorative circles */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-
         {/* ===== Top Heading ===== */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-3xl space-y-3 md:space-y-4"
+          className="max-w-3xl space-y-3 md:space-y-4 mb-12"
         >
-          <span className="text-white uppercase tracking-widest text-xs sm:text-sm font-semibold">
-            — Our Aim
+          <span className="text-pink-200 uppercase tracking-widest text-xs sm:text-sm font-semibold inline-block px-3 py-1 bg-white/10 rounded-full">
+            Our Aim
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-            Financial innovation <br /> meeting strategy
+            Financial Innovation <br />
+            <span className="text-pink-200">Meeting Strategy</span>
           </h2>
         </motion.div>
 
         {/* ===== Main Content Grid ===== */}
-        <div className="grid lg:grid-cols-2 gap-12 mt-12 items-start">
-
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* ===== LEFT CONTENT ===== */}
-          <div className="space-y-8">
-
-            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-[1.4] max-w-xl text-justify">
-              Our firm blends innovative strategies with established best practices to support you in achieving your financial objectives. We are committed to delivering clear, actionable insights that strengthen your decision-making and help you plan confidently for a prosperous future. Through the use of advanced analysis, industry knowledge, and a client-centered approach, we ensure every recommendation is both relevant and effective. This combination allows us to provide solutions that promote sustainable growth, enhance financial resilience, and build long-term confidence in your overall financial direction.
+          <div className="space-y-6">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed">
+              Our firm blends innovative strategies with established best practices to support you in achieving your financial objectives. We are committed to delivering clear, actionable insights that strengthen your decision-making and help you plan confidently for a prosperous future.
             </p>
-
-            {/* IMAGE */}
-            <div className="relative w-full max-w-xl rounded-xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/bookkeeping2.webp"
-                alt="Financial Strategy"
-                width={800}
-                height={600}
-                className="object-cover w-full h-auto"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* ===== RIGHT CONTENT (UPPER) ===== */}
-          <div className="lg:pt-30">
-            <p className="text-white text-sm sm:text-base md:text-lg leading-[1.4] max-w-xl text-justify">
-              With a strong foundation in financial expertise, we provide tailored consulting services to help you achieve your financial goals. Our focus is on delivering strategic advice that not only enhances your financial health but also empowers you to make informed decisions. Each consultation is designed to meet your unique needs while ensuring your financial future is secure. By combining industry insights, data-driven analysis, and a personalized approach, we guide you through complex financial challenges and opportunities, enabling long-term stability, sustainable growth, and greater confidence in every decision you make.
+            <p className="text-white/80 text-sm sm:text-base leading-relaxed">
+              Through the use of advanced analysis, industry knowledge, and a client-centered approach, we ensure every recommendation is both relevant and effective. This combination allows us to provide solutions that promote sustainable growth, enhance financial resilience, and build long-term confidence in your overall financial direction.
             </p>
           </div>
 
+          {/* IMAGE */}
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20 group">
+            <Image
+              src="/images/bookkeeping2.webp"
+              alt="Financial Strategy"
+              width={800}
+              height={550}
+              className="object-cover w-full h-[320px] sm:h-[380px] group-hover:scale-105 transition-transform duration-700"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

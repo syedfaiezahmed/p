@@ -29,8 +29,8 @@ export function Footer() {
         },
         {
           icon: <FaEnvelope className="text-[#b62166]" />,
-          text: "info@prospera.com",
-          href: "mailto:info@prospera.com",
+          text: "inquire@prosperaksa.com",
+          href: "mailto:inquire@prosperaksa.com",
         },
       ],
     },
@@ -38,18 +38,16 @@ export function Footer() {
       title: "Company",
       links: [
         { name: "About Us", href: "/about" },
-        { name: "Our Team", href: "/team" },
-        { name: "Careers", href: "/careers" },
-        { name: "Blog", href: "/blog" },
+        { name: "Leadership Team", href: "/about" },
+        { name: "Contact Us", href: "/contact" },
       ],
     },
     services: {
       title: "Services",
       links: [
-        { name: "Financial Planning", href: "/services/financial-planning" },
-        { name: "Tax Consulting", href: "/services/tax-consulting" },
-        { name: "Wealth Management", href: "/services/wealth-management" },
-        { name: "Business Strategy", href: "/services/business-strategy" },
+        { name: "All Services", href: "/services" },
+        { name: "Financial Services", href: "/services/financial" },
+        { name: "Digital Services", href: "/services/digital" },
       ],
     },
     social: [
@@ -57,16 +55,19 @@ export function Footer() {
         icon: <FaLinkedinIn className="w-4 h-4" />,
         color: "hover:bg-[#0077b5]",
         label: "LinkedIn",
+        href: "https://linkedin.com",
       },
       {
         icon: <FaTwitter className="w-4 h-4" />,
         color: "hover:bg-[#1DA1F2]",
         label: "Twitter",
+        href: "https://twitter.com",
       },
       {
         icon: <FaInstagram className="w-4 h-4" />,
         color: "hover:bg-gradient-to-tr from-yellow-400 to-pink-600",
         label: "Instagram",
+        href: "https://instagram.com",
       },
     ],
   };
@@ -90,18 +91,20 @@ export function Footer() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold bg-[#b62166] bg-clip-text text-transparent">
-                Prospera
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-300 via-[#b62166] to-pink-400 bg-clip-text text-transparent">
+                Prospera KSA
               </h3>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                 Empowering your financial journey with innovative solutions and
-                expert guidance.
+                expert guidance across Saudi Arabia.
               </p>
               <div className="flex space-x-4">
                 {footerData.social.map((social, index) => (
                   <motion.a
                     key={index}
-                    href="#"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ y: -3, scale: 1.1 }}
                     className={`text-gray-300 hover:text-white transition-all p-3 bg-[#382460]/70 backdrop-blur-sm rounded-full border border-[#b62166]/30 ${social.color}`}
                     aria-label={social.label}
@@ -111,6 +114,7 @@ export function Footer() {
                 ))}
               </div>
             </motion.div>
+
 
             {/* Company Links */}
             <motion.div

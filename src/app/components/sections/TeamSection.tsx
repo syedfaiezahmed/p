@@ -36,15 +36,16 @@ export function TeamSection() {
       },
     },
     {
-      name: "Muhammad Ali",
+      name: "Mohammed Ali",
       position: "Director",
-      image: "/images/team/Asif.jpg",
+      image: "/images/team/Mohammed Ali.jpg",
       social: {
         linkedin: "#",
         twitter: "#",
         email: "#",
       },
     },
+
   ];
 
   return (

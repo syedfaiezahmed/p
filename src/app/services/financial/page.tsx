@@ -119,12 +119,13 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/corporate-finance"
+                    href="/contact?service=corporate-finance"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
+
               </div>
             </motion.div>
 
@@ -201,10 +202,10 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/tax-advisory"
+                    href="/contact?service=tax-advisory"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -283,10 +284,10 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/treasury-risk"
+                    href="/contact?service=treasury-risk"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -371,10 +372,10 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/financial-transformation"
+                    href="/contact?service=financial-transformation"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -453,10 +454,10 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/compliance-reporting"
+                    href="/contact?service=compliance-reporting"
                     className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -535,10 +536,10 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/services/business-advisory"
+                    href="/contact?service=business-advisory"
                     className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Learn more →
+                    Request Consultation →
                   </Link>
                 </motion.div>
               </div>
@@ -683,7 +684,7 @@ export default function ServicesPage() {
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-white">
                 <Image
-                  src="/images/fin-ser.jpg  "
+                  src="/images/fin-ser.jpg"
                   alt="Prospera consulting team analyzing industry data"
                   fill
                   className="object-cover"
@@ -691,6 +692,7 @@ export default function ServicesPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
+
               <div className="absolute -bottom-4 -right-4 w-28 h-28 border-4 border-[#8a1650] rounded-lg z-[-1]"></div>
             </motion.div>
           </div>
@@ -871,28 +873,30 @@ export default function ServicesPage() {
               <div className="md:w-1/3">
                 <div className="relative aspect-square rounded-xl overflow-hidden">
                   <Image
-                    src="/images/client-testimonial.jpg"
-                    alt="Client testimonial"
+                    src="/images/team/Saeed.jpg"
+                    alt="Saeed Ahmed Siddiqui - Managing Partner"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     quality={90}
                   />
                 </div>
               </div>
               <div className="md:w-2/3">
                 <blockquote className="text-white text-lg italic mb-4">
-                  "Prospera's financial restructuring expertise transformed our
-                  balance sheet and positioned us for sustainable growth. Their
-                  team delivered actionable insights and implemented solutions
-                  that improved our cash flow by 35% within the first year."
+                  "At Prospera, our commitment is to provide strategic financial
+                  advisory and operational clarity that empowers organizations to
+                  scale sustainably across Saudi Arabia and the region."
                 </blockquote>
-                <div className="text-white font-medium">Khalid Al-Mansoori</div>
-                <div className="text-[#f0c6d8] text-sm">
-                  CEO, Al-Mansoori Holdings
+                <div className="text-white font-medium text-lg">
+                  Saeed Ahmed Siddiqui
+                </div>
+                <div className="text-[#f0c6d8] text-sm font-semibold">
+                  Managing Partner, Prospera Consulting
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -949,11 +953,11 @@ export default function ServicesPage() {
                 transition={{ duration: 0.3 }}
               >
                 <Link
-                  href="/case-studies"
+                  href="/about"
                   className="inline-flex items-center bg-white text-[#2a1a4a] border border-[#2a1a4a] hover:bg-gray-50 px-8 py-3 rounded-xl font-semibold shadow-sm transition-all duration-300"
-                  aria-label="View Prospera case studies"
+                  aria-label="View about Prospera"
                 >
-                  View Case Studies
+                  About Our Firm
                   <svg
                     className="w-5 h-5 ml-2"
                     fill="none"
@@ -964,13 +968,7 @@ export default function ServicesPage() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
                     />
                   </svg>
                 </Link>

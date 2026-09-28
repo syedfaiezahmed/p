@@ -61,16 +61,18 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
       {/* Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
+        aria-label="Previous slide"
+        className="absolute left-2 sm:left-4 top-1/2 z-20 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-xs hover:scale-110"
       >
-        <ChevronLeftIcon className="h-6 w-6" />
+        <ChevronLeftIcon className="h-5 w-5 sm:h-6 sm:w-6" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full"
+        aria-label="Next slide"
+        className="absolute right-2 sm:right-4 top-1/2 z-20 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-xs hover:scale-110"
       >
-        <ChevronRightIcon className="h-6 w-6" />
+        <ChevronRightIcon className="h-5 w-5 sm:h-6 sm:w-6" />
       </button>
 
       {/* Indicators */}
@@ -79,8 +81,10 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full ${currentSlide === index ? "bg-white w-6" : "bg-white/50 w-2"
-              }`}
+            aria-label={`Go to slide ${index + 1}`}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === index ? "bg-white w-8 shadow-md" : "bg-white/50 w-2.5 hover:bg-white/70"
+            }`}
           />
         ))}
       </div>
@@ -92,39 +96,25 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className={`max-w-3xl w-full px-4 
-            ${currentSlide === 1
-              ? "mx-auto text-center flex flex-col items-center"
-              : "ml-4 sm:ml-8 md:ml-16 text-left"
-            }
-          `}
+          className="max-w-3xl w-full px-4 ml-2 sm:ml-6 md:ml-12 text-left"
         >
           {/* Title */}
           {items[currentSlide].title && (
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-white leading-tight drop-shadow-md">
               {items[currentSlide].title}
             </h1>
           )}
 
           {/* Description */}
-          <p
-            className={`mb-3 text-white/90 leading-snug 
-                ${currentSlide === 1
-                ? "text-center mx-auto text-xl sm:text-2xl font-bold max-w-3xl"
-                : currentSlide === 2
-                  ? "text-xl sm:text-3xl font-bold max-w-2xl text-left"
-                  : "text-base sm:text-lg max-w-2xl text-left"
-              }
-          `}
-          >
+          <p className="mb-6 text-white/90 text-base sm:text-lg md:text-xl font-normal max-w-2xl leading-relaxed drop-shadow-sm">
             {items[currentSlide].description}
           </p>
 
           {/* Button */}
-          <div className={`mt-4 ${currentSlide === 1 ? "flex justify-center" : ""}`}>
+          <div>
             <Link
               href="/contact"
-              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] text-white px-6 py-3 rounded-md font-semibold shadow-lg uppercase tracking-wide"
+              className="inline-block border-2 border-white bg-gradient-to-r from-[#b62166] to-[#382460] hover:from-[#9c1854] hover:to-[#2b1b4b] text-white px-7 py-3 rounded-lg font-semibold shadow-xl uppercase tracking-wider text-sm sm:text-base transition-all duration-300 hover:scale-105 active:scale-95"
             >
               {items[currentSlide].buttonText}
             </Link>
@@ -134,3 +124,4 @@ export function HeroCarousel({ items }: { items: CarouselItem[] }) {
     </section>
   );
 }
+

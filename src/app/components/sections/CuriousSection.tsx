@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function CuriousSection() {
   return (
@@ -33,27 +34,25 @@ export function CuriousSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex gap-4 justify-center"
+            className="flex flex-wrap gap-4 justify-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 bg-white text-[#382460] text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors duration-200"
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 bg-white text-[#382460] text-base sm:text-lg font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:scale-105 active:scale-95 inline-block"
             >
               Get Started
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-8 py-3 border border-white text-white text-lg font-semibold rounded-lg hover:bg-white/10 transition-all duration-200"
+            </Link>
+
+            <Link
+              href="/services"
+              className="px-8 py-3.5 border-2 border-white text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-white/15 transition-all duration-200 shadow-md hover:scale-105 active:scale-95 inline-block"
             >
               Learn More
-            </motion.button>
+            </Link>
           </motion.div>
-
         </div>
       </div>
     </section>
   );
 }
+

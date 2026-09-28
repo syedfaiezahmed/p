@@ -9,14 +9,15 @@ export function CTASection() {
     <section className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/cta-bg-image.jpg"
+          src="/images/office.jpg"
           alt="Financial consultation"
           fill
           className="object-cover"
-          quality={100}
+          quality={95}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#382460cc] to-[#b62166cc]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#382460ee] to-[#b62166dd]" />
       </div>
+
 
       <div className="absolute inset-0 opacity-10 z-0">
         <div className="absolute top-0 left-0 w-24 h-24 bg-white rounded-full mix-blend-overlay"></div>

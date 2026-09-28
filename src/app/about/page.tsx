@@ -40,7 +40,7 @@ export default function AboutPage() {
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-white">
                 <Image
-                  src="/images/about1.jpg"
+                  src="/images/About1.jpg"
                   alt="Prospera consulting team working together"
                   fill
                   className="object-cover"
@@ -50,6 +50,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
               </div>
+
               <div className="absolute -bottom-4 -right-4 w-28 h-28 border-4 border-[#8a1650] rounded-lg z-[-1]"></div>
             </motion.div>
 
@@ -398,7 +399,7 @@ export default function AboutPage() {
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/team/saeed.jpg"
+                  src="/images/team/Saeed.jpg"
                   alt="Saeed A. Siddiqui - Managing Partner at Prospera Consulting"
                   fill
                   className="object-cover object-top"
@@ -470,7 +471,7 @@ export default function AboutPage() {
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/team/siraj.jpg"
+                  src="/images/team/Siraj.jpg"
                   alt="Siraj Ahmed Ansari - Partner at Prospera Consulting"
                   fill
                   className="object-cover object-top"
@@ -542,7 +543,7 @@ export default function AboutPage() {
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/team/salman Ahmed.jpg"
+                  src="/images/team/Salman Ahmed.jpg"
                   alt="Salman Ahmed - Director at Prospera Consulting"
                   fill
                   className="object-cover object-top"
@@ -598,7 +599,7 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Director */}
+            {/* Director - Mohammed Ali */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -614,8 +615,8 @@ export default function AboutPage() {
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
-                  src="/images/team/asif.jpg"
-                  alt="Asif Ahmed - Director at Prospera Consulting"
+                  src="/images/team/Mohammed Ali.jpg"
+                  alt="Mohammed Ali - Director at Prospera Consulting"
                   fill
                   className="object-cover object-top"
                   quality={90}
@@ -623,7 +624,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    Asif Ahmed
+                    Mohammed Ali
                   </h3>
                   <p className="text-[#f0c6d8] text-sm">Director</p>
                 </div>
@@ -638,6 +639,7 @@ export default function AboutPage() {
                   management.
                 </p>
                 <div className="space-y-2">
+
                   <h4 className="font-semibold text-[#2a1a4a] text-sm sm:text-base">
                     Expertise
                   </h4>

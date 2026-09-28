@@ -24,23 +24,23 @@ export default function Home() {
   const carouselItems = [
     {
       image: "/images/hero image.jpg",
-      title: "Accounting Simplified...",
+      title: "Accounting Simplified & Elevated",
       description:
         "Unlock your full potential and transform with our comprehensive range of services in finance, technology, human resources, and statutory compliance.",
       buttonText: "Get Started",
     },
     {
       image: "/images/hero image2.jpg",
-      title: "",
+      title: "Tailored Financial Consulting",
       description:
-        "Experience unparalleled financial guidance with our expert consulting services. Whether you're an individual or a business, our tailored solutions are designed to empower your financial journey.",
+        "Experience unparalleled financial guidance with our expert consulting services designed to empower your financial journey and long-term stability.",
       buttonText: "Start your Journey",
     },
     {
       image: "/images/hero image3.jpg",
-      title: "",
+      title: "Strategic Business Transformation",
       description:
-        "Transform your financial future with our expert consulting services, where personalized strategies meet industry insights.",
+        "Transform your financial future with our expert consulting services, where personalized strategies meet deep industry insights.",
       buttonText: "Consult Now",
     },
   ];
@@ -55,25 +55,30 @@ export default function Home() {
   const services = [
     {
       title: "Bookkeeping Services",
-      description: "",
+      description:
+        "Accurate financial records, ledger maintenance, and compliant financial reporting tailored to your business.",
       image: "/images/Bookkeeping Services.jpg",
     },
     {
       title: "Comprehensive Financial Planning",
-      description: "",
+      description:
+        "Strategic budgeting, cash flow forecasting, and proactive wealth planning for sustained growth.",
       image: "/images/Financial Planning2.jpg",
     },
     {
       title: "Payroll Management",
-      description: "",
+      description:
+        "End-to-end payroll processing, tax withholdings, and compliant employee compensation management.",
       image: "/images/Payroll4.jpg",
     },
     {
       title: "Process Optimization",
-      description: "",
-      image: "/images/Business-process-Optimization.jpg",
+      description:
+        "Streamlining financial workflows and business systems to maximize operational efficiency.",
+      image: "/images/Business-Process-Optimization.jpg",
     },
   ];
+
 
   const benefits = [
     {
