@@ -20,6 +20,7 @@ import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import AnnouncementBanner from "./AnnouncementBanner";
 
 const openEmail = (
   to = "inquire@prosperaksa.com",
@@ -193,6 +194,9 @@ export default function Navbar() {
       )}
       aria-label="Main navigation"
     >
+      {/* Announcement Banner from Admin Dashboard */}
+      <AnnouncementBanner />
+
       {/* Top contact bar with gradient */}
       <AnimatePresence>
         {!contactHidden && (

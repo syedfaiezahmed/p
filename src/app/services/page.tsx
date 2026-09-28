@@ -1,454 +1,230 @@
-// app/services/page.tsx
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Footer } from "../components/ui/footer";
+import { ConsultingService } from "@/lib/types/inquiryTypes";
+import { getStoredServices, fetchAllServices, EVENT_SERVICES_UPDATED } from "@/lib/stores/servicesStore";
+import { Search, ArrowRight, CheckCircle2, Sparkles, Filter } from "lucide-react";
 
 export default function ServicesPage() {
-  const router = useRouter();
+  const [services, setServices] = useState<ConsultingService[]>(getStoredServices);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  useEffect(() => {
+    fetchAllServices().then((list) => {
+      setServices(list);
+    });
+
+    const handleUpdate = (e: any) => {
+      const list = e.detail || getStoredServices();
+      setServices(list);
+    };
+
+    window.addEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
+    return () => window.removeEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
+  }, []);
+
+  const categories = ["all", "Financial Services", "Digital Transformation", "Core Accounting"];
+
+  const filteredServices = services
+    .filter((s) => s.active !== false)
+    .filter((s) => {
+      const matchSearch =
+        searchQuery.trim() === "" ||
+        s.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.category.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const matchCategory =
+        selectedCategory === "all" ||
+        s.category.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+        (selectedCategory === "Financial Services" && s.categorySlug === "financial") ||
+        (selectedCategory === "Digital Transformation" && s.categorySlug === "digital");
+
+      return matchSearch && matchCategory;
+    });
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[30vh] min-h-[250px] flex items-center bg-gradient-to-br from-[#2a1a4a] to-[#8a1650]">
-        <div className="container mx-auto px-6 text-center">
-          <motion.h1
+      <section className="relative py-16 md:py-24 bg-gradient-to-br from-[#2a1a4a] via-[#382460] to-[#8a1650] text-white overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="container mx-auto px-6 text-center relative z-10 max-w-4xl">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
+            transition={{ duration: 0.7 }}
           >
-            Our <span className="text-[#f0c6d8]">Services</span>
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="w-16 h-0.5 bg-[#f0c6d8] mx-auto mb-4"
-          ></motion.div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-white/90 text-sm md:text-base max-w-2xl mx-auto"
-          >
-            Comprehensive financial and digital solutions to drive your business
-            growth
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Services Navigation Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#2a1a4a] mb-4">
-                Our Service Offerings
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-[#8a1650] to-[#2a1a4a] mx-auto rounded-full mb-6"></div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore our comprehensive range of financial and digital
-                services designed to address your business needs
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Financial Services Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                type: "spring",
-                stiffness: 100,
-              }}
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-            >
-              <div className="p-8">
-                <div className="flex items-center justify-center w-16 h-16 bg-[#f8e1eb] rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg
-                    className="w-8 h-8 text-[#8a1650]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 01118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#2a1a4a] mb-4">
-                  Financial Services
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Traditional financial expertise with modern strategic insights
-                </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  <span className="bg-[#f8e1eb] text-[#8a1650] text-sm px-3 py-1.5 rounded-full">
-                    Corporate Finance
-                  </span>
-                  <span className="bg-[#f8e1eb] text-[#8a1650] text-sm px-3 py-1.5 rounded-full">
-                    Tax Advisory
-                  </span>
-                  <span className="bg-[#f8e1eb] text-[#8a1650] text-sm px-3 py-1.5 rounded-full">
-                    Compliance
-                  </span>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => router.push("/services/financial")}
-                  className="w-full bg-gradient-to-r from-[#8a1650] to-[#6e1240] hover:from-[#6e1240] hover:to-[#4a0d2a] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center"
-                >
-                  Explore Financial Services
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </motion.button>
-              </div>
-            </motion.div>
-
-            {/* Digital Services Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group"
-            >
-              <div className="p-8">
-                <div className="flex items-center justify-center w-16 h-16 bg-[#ece6f5] rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg
-                    className="w-8 h-8 text-[#2a1a4a]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#2a1a4a] mb-4">
-                  Digital Services
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Technology-driven solutions for the modern finance function
-                </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  <span className="bg-[#ece6f5] text-[#2a1a4a] text-sm px-3 py-1.5 rounded-full">
-                    Automation
-                  </span>
-                  <span className="bg-[#ece6f5] text-[#2a1a4a] text-sm px-3 py-1.5 rounded-full">
-                    Analytics
-                  </span>
-                  <span className="bg-[#ece6f5] text-[#2a1a4a] text-sm px-3 py-1.5 rounded-full">
-                    Transformation
-                  </span>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => router.push("/services/digital")}
-                  className="w-full bg-gradient-to-r from-[#2a1a4a] to-[#1e1238] hover:from-[#1e1238] hover:to-[#120824] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center"
-                >
-                  Explore Digital Services
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </motion.button>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integrated Approach Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="flex flex-col lg:flex-row gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 60,
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="lg:w-1/2 relative"
-            >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-[6px] border-white">
-                <Image
-                  src="/images/financial success image.jpg"
-                  alt="Prospera integrated services approach"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              </div>
-
-              <div className="absolute -bottom-4 -right-4 w-28 h-28 border-4 border-[#8a1650] rounded-lg z-[-1]"></div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 60,
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="lg:w-1/2"
-            >
-              <div className="mb-2 text-sm font-semibold text-[#8a1650] tracking-widest">
-                INTEGRATED APPROACH
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#2a1a4a] mb-4 leading-tight">
-                Where Finance Meets Technology
-              </h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p className="text-base sm:text-lg">
-                  At Prospera, we believe the most powerful solutions come from
-                  integrating financial expertise with digital innovation. Our
-                  cross-functional teams work together to deliver comprehensive
-                  solutions that address both immediate challenges and long-term
-                  strategic goals.
-                </p>
-                <p>
-                  Whether you need traditional financial advisory or
-                  cutting-edge digital transformation, our integrated approach
-                  ensures seamless implementation and maximum value for your
-                  organization.
-                </p>
-              </div>
-
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                {[
-                  {
-                    title: "Holistic Solutions",
-                    icon: (
-                      <svg
-                        className="w-5 h-5 text-[#8a1650]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                        />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "Seamless Integration",
-                    icon: (
-                      <svg
-                        className="w-5 h-5 text-[#8a1650]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
-                        />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "Future-Proofing",
-                    icon: (
-                      <svg
-                        className="w-5 h-5 text-[#8a1650]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
-                    ),
-                  },
-                  {
-                    title: "Cross-Functional Teams",
-                    icon: (
-                      <svg
-                        className="w-5 h-5 text-[#8a1650]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                    ),
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -3 }}
-                    className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border-l-4 border-[#8a1650] flex items-start"
-                  >
-                    <div className="bg-[#f8e1eb] p-2 rounded-lg mr-3">
-                      {item.icon}
-                    </div>
-                    <h3 className="font-medium text-[#2a1a4a]">{item.title}</h3>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-[#2a1a4a] to-[#8a1650] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/about/dot-pattern.png')] opacity-10"></div>
-        <div className="container mx-auto px-6 max-w-5xl text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="mb-3 text-sm font-semibold text-[#f0c6d8] tracking-widest">
-              NOT SURE WHERE TO START?
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-              Talk to Our Experts
-            </h2>
-            <div className="w-24 h-1 bg-[#f0c6d8] mx-auto mb-6 rounded-full"></div>
-            <p className="text-white/90 mb-8 max-w-2xl mx-auto text-base sm:text-lg">
-              Our consultants will help you identify the right solutions for
-              your specific business needs and challenges.
+            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#f0c6d8] backdrop-blur-md mb-4 border border-white/20">
+              Corporate & Advisory Catalog
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-4 leading-tight">
+              Our Practice <span className="text-[#f0c6d8]">Areas</span>
+            </h1>
+            <div className="w-20 h-1 bg-[#f0c6d8] mx-auto mb-5 rounded-full"></div>
+            <p className="text-white/85 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              Explore our full spectrum of SOCPA-certified financial advisory, ZATCA e-invoicing compliance, and digital ERP transformation services tailored for Saudi Arabia.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center bg-white text-[#8a1650] hover:bg-gray-100 px-8 py-3 rounded-xl font-semibold shadow-lg transition-all duration-300"
-                >
-                  Contact Us
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                    />
-                  </svg>
-                </Link>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Link
-                  href="/about"
-                  className="inline-flex items-center bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-xl font-semibold transition-all duration-300"
-                >
-                  About Our Firm
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </section>
 
+      {/* Filter & Search Bar */}
+      <section className="sticky top-20 z-30 bg-[#fbf9fd]/95 backdrop-blur-md border-y border-gray-200 py-4">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Search */}
+            <div className="relative w-full md:w-80">
+              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search practice areas or topics..."
+                className="w-full rounded-xl border border-gray-300 bg-white py-2 pl-10 pr-4 text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:border-[#8a1650] focus:outline-none focus:ring-1 focus:ring-[#8a1650] shadow-xs"
+              />
+            </div>
+
+            {/* Category Tabs */}
+            <div className="flex flex-wrap items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`rounded-xl px-4 py-2 text-xs font-semibold transition-all whitespace-nowrap ${
+                    selectedCategory === cat
+                      ? "bg-[#8a1650] text-white shadow-md"
+                      : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
+                  }`}
+                >
+                  {cat === "all" ? "All Practice Areas" : cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dynamic Services Catalog Grid */}
+      <section className="py-14 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="mb-8 flex items-center justify-between">
+            <p className="text-xs sm:text-sm text-gray-500 font-medium">
+              Showing <strong className="text-[#2a1a4a] font-bold">{filteredServices.length}</strong> active consulting practice {filteredServices.length === 1 ? "area" : "areas"}
+            </p>
+          </div>
+
+          {filteredServices.length === 0 ? (
+            <div className="rounded-2xl border border-gray-200 bg-white p-12 text-center shadow-xs">
+              <p className="text-gray-500 text-sm">No practice areas match your search filter.</p>
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory("all");
+                }}
+                className="mt-3 text-xs font-bold text-[#8a1650] hover:underline"
+              >
+                Reset Search Filters
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {filteredServices.map((service, idx) => (
+                <motion.div
+                  key={service.slug || service.id || idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx % 6) * 0.08 }}
+                  whileHover={{ y: -6 }}
+                  className="flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200/80 bg-white shadow-sm hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div>
+                    {/* Thumbnail */}
+                    <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+                      <Image
+                        src={service.image || service.heroImage || "/images/Bookkeeping Services.jpg"}
+                        alt={service.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="rounded-md bg-white/90 backdrop-blur-md px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#2a1a4a] shadow-xs">
+                          {service.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <Link href={`/services/${service.slug}`}>
+                        <h3 className="text-lg font-bold text-[#2a1a4a] group-hover:text-[#8a1650] transition-colors leading-snug">
+                          {service.title}
+                        </h3>
+                      </Link>
+                      <p className="mt-2 text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3">
+                        {service.shortDescription}
+                      </p>
+
+                      {/* Deliverables snippet */}
+                      {service.deliverables && service.deliverables.length > 0 && (
+                        <div className="mt-4 space-y-1.5 border-t border-gray-100 pt-3">
+                          {service.deliverables.slice(0, 2).map((d, dIdx) => (
+                            <div key={dIdx} className="flex items-start gap-2 text-xs text-gray-700">
+                              <CheckCircle2 className="h-3.5 w-3.5 text-[#8a1650] shrink-0 mt-0.5" />
+                              <span className="truncate">{d}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Card Footer */}
+                  <div className="border-t border-gray-100 bg-[#fbf9fd] px-6 py-3.5 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-[#8a1650]">
+                      {service.pricingTier || "Custom Scope"}
+                    </span>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#2a1a4a] hover:text-[#8a1650] transition-colors"
+                    >
+                      <span>Explore Scope</span>
+                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-[#2a1a4a] to-[#8a1650] relative overflow-hidden text-white">
+        <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
+          <h2 className="text-3xl font-extrabold mb-3">Require a Custom Advisory Retainer?</h2>
+          <p className="text-white/80 text-sm sm:text-base max-w-xl mx-auto mb-6">
+            Our certified partners in Riyadh structure tailored advisory teams and fractional CFO models for enterprise clients.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/contact"
+              className="rounded-xl bg-white px-7 py-3 text-xs sm:text-sm font-bold text-[#2a1a4a] hover:bg-pink-50 shadow-lg transition-transform hover:scale-105"
+            >
+              Request Strategy Session
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer />
-
-      <style jsx global>{`
-        a:focus-visible,
-        button:focus-visible {
-          outline: 2px solid #8a1650;
-          outline-offset: 4px;
-          border-radius: 0.25rem;
-        }
-      `}</style>
     </div>
   );
 }

@@ -16,9 +16,47 @@ import { Footer } from "./components/ui/footer";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
 import { CuriousSection } from "./components/sections/CuriousSection";
 
+import { getStoredServices, fetchAllServices, EVENT_SERVICES_UPDATED } from "@/lib/stores/servicesStore";
+import { useEffect } from "react";
+
 // Main Page Component
 export default function Home() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [servicesList, setServicesList] = useState(() => {
+    const stored = getStoredServices();
+    return stored.filter((s) => s.active !== false).slice(0, 8).map((s) => ({
+      title: s.title,
+      slug: s.slug,
+      description: s.shortDescription,
+      image: s.image || s.heroImage || "/images/Bookkeeping Services.jpg",
+    }));
+  });
+
+  useEffect(() => {
+    fetchAllServices().then((list) => {
+      const active = list.filter((s) => s.active !== false).slice(0, 8).map((s) => ({
+        title: s.title,
+        slug: s.slug,
+        description: s.shortDescription,
+        image: s.image || s.heroImage || "/images/Bookkeeping Services.jpg",
+      }));
+      setServicesList(active);
+    });
+
+    const handleUpdate = (e: any) => {
+      const list = e.detail || getStoredServices();
+      const active = list.filter((s: any) => s.active !== false).slice(0, 8).map((s: any) => ({
+        title: s.title,
+        slug: s.slug,
+        description: s.shortDescription,
+        image: s.image || s.heroImage || "/images/Bookkeeping Services.jpg",
+      }));
+      setServicesList(active);
+    };
+
+    window.addEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
+    return () => window.removeEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
+  }, []);
 
   // Data
   const carouselItems = [
@@ -50,37 +88,6 @@ export default function Home() {
     { value: "500+", label: "Satisfied Clients" },
     { value: "$1B+", label: "Assets Managed" },
     { value: "24/7", label: "Client Support" },
-  ];
-
-  const services = [
-    {
-      title: "Bookkeeping Services",
-      slug: "bookkeeping-services",
-      description:
-        "Accurate financial records, ledger maintenance, and compliant financial reporting tailored to your business.",
-      image: "/images/Bookkeeping Services.jpg",
-    },
-    {
-      title: "Comprehensive Financial Planning",
-      slug: "financial-planning",
-      description:
-        "Strategic budgeting, cash flow forecasting, and proactive wealth planning for sustained growth.",
-      image: "/images/Financial Planning2.jpg",
-    },
-    {
-      title: "Payroll Management",
-      slug: "payroll-management",
-      description:
-        "End-to-end payroll processing, tax withholdings, and compliant employee compensation management.",
-      image: "/images/Payroll4.jpg",
-    },
-    {
-      title: "Process Optimization",
-      slug: "process-optimization",
-      description:
-        "Streamlining financial workflows and business systems to maximize operational efficiency.",
-      image: "/images/Business-Process-Optimization.jpg",
-    },
   ];
 
 
@@ -132,7 +139,7 @@ export default function Home() {
       <StatsSection stats={stats} />
       <ImageContentSection />
       <AimSection />
-      <ServicesSection services={services} />
+      <ServicesSection services={servicesList} />
       <ApproachSection />
       <TeamSection />
       <BenefitsSection benefits={benefits} />

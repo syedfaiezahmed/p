@@ -17,9 +17,81 @@ import {
   UsersIcon,
 } from "@heroicons/react/24/outline";
 import { MessageCircle } from "lucide-react";
+import { connectToDatabase } from "@/lib/db";
+import { Service } from "@/lib/models/Service";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+async function getServiceBySlug(slug: string): Promise<ServiceDetail | null> {
+  // 1. Try static dataset
+  if (servicesData[slug]) {
+    return servicesData[slug];
+  }
+
+  // 2. Try MongoDB
+  try {
+    const db = await connectToDatabase();
+    if (db) {
+      const doc = await Service.findOne({ slug }).lean();
+      if (doc) {
+        return {
+          slug: doc.slug,
+          title: doc.title,
+          category: (doc.category as any) || "Financial Services",
+          categorySlug: (doc.categorySlug as any) || "financial",
+          tagline: doc.tagline || doc.shortDescription || "",
+          shortDescription: doc.shortDescription || "",
+          fullDescription: Array.isArray(doc.fullDescription)
+            ? doc.fullDescription
+            : [doc.fullDescription || doc.shortDescription || ""],
+          heroImage: doc.heroImage || doc.image || "/images/Bookkeeping Services.jpg",
+          keyBenefits: doc.keyBenefits && doc.keyBenefits.length > 0 ? doc.keyBenefits : [
+            {
+              title: "Expert Professional Advisory",
+              description: "Dedicated chartered accountants ensuring complete statutory compliance.",
+            },
+            {
+              title: "Tailored Corporate Strategy",
+              description: "Custom delivery timelines aligned with your organizational targets.",
+            },
+          ],
+          coreDeliverables: doc.coreDeliverables && doc.coreDeliverables.length > 0 ? doc.coreDeliverables : doc.deliverables || [
+            "Comprehensive scope audit and initial kickoff",
+            "Monthly executive reporting & management briefings",
+          ],
+          methodology: doc.methodology && doc.methodology.length > 0 ? doc.methodology : [
+            {
+              step: "01",
+              title: "Discovery & Planning",
+              description: "Scoping requirements and organizational alignment.",
+            },
+            {
+              step: "02",
+              title: "Implementation & Execution",
+              description: "Deploying certified consultants and structured workflows.",
+            },
+          ],
+          targetAudience: doc.targetAudience && doc.targetAudience.length > 0 ? doc.targetAudience : [
+            "Saudi Enterprises & GCC Corporates",
+            "Mid-Market Organizations",
+          ],
+          faqs: doc.faqs && doc.faqs.length > 0 ? doc.faqs : [
+            {
+              question: "How do we begin our engagement with Prospera?",
+              answer: "Submit an inquiry via our contact form or WhatsApp to schedule a 30-minute discovery session with our senior consultant.",
+            },
+          ],
+          relatedSlugs: doc.relatedSlugs || ["bookkeeping-services", "financial-planning"],
+        };
+      }
+    }
+  } catch (err) {
+    console.warn("MongoDB service lookup error:", err);
+  }
+
+  return null;
 }
 
 // Generate Static Params for Next.js build performance
@@ -30,7 +102,7 @@ export async function generateStaticParams() {
 // Dynamic SEO Metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = servicesData[slug];
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     return {
@@ -51,7 +123,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DynamicServicePage({ params }: Props) {
   const { slug } = await params;
-  const service: ServiceDetail | undefined = servicesData[slug];
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     notFound();
