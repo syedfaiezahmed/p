@@ -55,29 +55,34 @@ export default function Home() {
   const services = [
     {
       title: "Bookkeeping Services",
+      slug: "bookkeeping-services",
       description:
         "Accurate financial records, ledger maintenance, and compliant financial reporting tailored to your business.",
       image: "/images/Bookkeeping Services.jpg",
     },
     {
       title: "Comprehensive Financial Planning",
+      slug: "financial-planning",
       description:
         "Strategic budgeting, cash flow forecasting, and proactive wealth planning for sustained growth.",
       image: "/images/Financial Planning2.jpg",
     },
     {
       title: "Payroll Management",
+      slug: "payroll-management",
       description:
         "End-to-end payroll processing, tax withholdings, and compliant employee compensation management.",
       image: "/images/Payroll4.jpg",
     },
     {
       title: "Process Optimization",
+      slug: "process-optimization",
       description:
         "Streamlining financial workflows and business systems to maximize operational efficiency.",
       image: "/images/Business-Process-Optimization.jpg",
     },
   ];
+
 
 
   const benefits = [

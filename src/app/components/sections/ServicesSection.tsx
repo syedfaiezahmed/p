@@ -8,6 +8,7 @@ interface ServiceItem {
   title: string;
   description: string;
   image: string;
+  slug?: string;
 }
 
 export function ServicesSection({ services }: { services: ServiceItem[] }) {
@@ -20,9 +21,9 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-[#382460] tracking-widest text-sm font-semibold mb-2"
+            className="text-[#382460] tracking-widest text-sm font-semibold mb-2 uppercase"
           >
-            — Solving More: Comprehensive Tools for Your Toughest Challenges
+            Comprehensive Advisory & Specialized Solutions
           </motion.h2>
 
           <motion.p
@@ -56,7 +57,10 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
               }}
               className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full overflow-hidden border border-gray-100"
             >
-              <div className="relative w-full h-44 md:h-48 overflow-hidden">
+              <Link
+                href={service.slug ? `/services/${service.slug}` : "/services"}
+                className="block relative w-full h-44 md:h-48 overflow-hidden"
+              >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
                 <Image
                   src={service.image}
@@ -73,12 +77,16 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               <div className="p-4 md:p-5 flex flex-col flex-grow">
-                <h3 className="text-lg md:text-xl font-bold text-[#382460] mb-2 md:mb-3 group-hover:text-[#b62166] transition-colors duration-300 line-clamp-2 leading-snug">
-                  {service.title}
-                </h3>
+                <Link
+                  href={service.slug ? `/services/${service.slug}` : "/services"}
+                >
+                  <h3 className="text-lg md:text-xl font-bold text-[#382460] mb-2 md:mb-3 group-hover:text-[#b62166] transition-colors duration-300 line-clamp-2 leading-snug">
+                    {service.title}
+                  </h3>
+                </Link>
 
                 <p className="text-gray-600 text-sm md:text-base mb-3 md:mb-4 flex-grow leading-relaxed line-clamp-3">
                   {service.description}
@@ -86,11 +94,11 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
 
                 <div className="mt-auto pt-3 border-t border-gray-100">
                   <Link
-                    href="/services"
+                    href={service.slug ? `/services/${service.slug}` : "/services"}
                     className="inline-flex items-center gap-1 text-[#b62166] font-semibold hover:text-[#382460] transition-all duration-300 group/link text-sm md:text-base"
                   >
                     <span className="relative">
-                      Learn More
+                      Explore Service
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#b62166] group-hover/link:w-full transition-all duration-300"></span>
                     </span>
                     <span className="group-hover/link:translate-x-1 transition-transform duration-300">
@@ -108,3 +116,4 @@ export function ServicesSection({ services }: { services: ServiceItem[] }) {
     </section>
   );
 }
+

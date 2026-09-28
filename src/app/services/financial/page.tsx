@@ -119,10 +119,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=corporate-finance"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/corporate-finance"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
 
@@ -202,10 +203,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=tax-advisory"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/tax-advisory"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -284,10 +286,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=treasury-risk"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/treasury-risk"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -372,10 +375,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=financial-transformation"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/financial-transformation"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -454,10 +458,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=compliance-reporting"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/compliance-reporting"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -536,10 +541,11 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=business-advisory"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/business-advisory"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>

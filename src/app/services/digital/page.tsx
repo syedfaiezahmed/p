@@ -185,10 +185,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=erp-integration"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/erp-integration"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -267,10 +268,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=process-automation"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/process-automation"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -349,10 +351,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=data-analytics"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/data-analytics"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -437,10 +440,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=digital-finance-transformation"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/digital-finance-transformation"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -519,10 +523,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=cybersecurity"
-                    className="inline-block text-sm font-medium text-[#8a1650] hover:text-[#6e1240] transition-colors"
+                    href="/services/cybersecurity"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#8a1650] hover:text-[#6e1240] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
@@ -601,10 +606,11 @@ export default function DigitalServicesPage() {
                   transition={{ duration: 0.3 }}
                 >
                   <Link
-                    href="/contact?service=blockchain-solutions"
-                    className="inline-block text-sm font-medium text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
+                    href="/services/blockchain-solutions"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#2a1a4a] hover:text-[#1e1238] transition-colors"
                   >
-                    Request Consultation →
+                    <span>View Service Details</span>
+                    <span>→</span>
                   </Link>
                 </motion.div>
               </div>
