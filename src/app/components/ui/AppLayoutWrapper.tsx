@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "./navbar";
+import ProsperaChatWidget from "./ProsperaChatWidget";
 
 export default function AppLayoutWrapper({
   children,
@@ -19,6 +20,8 @@ export default function AppLayoutWrapper({
     <>
       <Navbar />
       <div className="pt-[88px] sm:pt-[104px] lg:pt-[96px]">{children}</div>
+      <ProsperaChatWidget />
     </>
   );
 }
+
