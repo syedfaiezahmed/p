@@ -6,23 +6,23 @@ import Image from "next/image";
 export function TeamSection() {
   const teamMembers = [
     {
-      name: "Saeed A. Siddiqui",
+      name: "Siraj Ahmed Ansari",
       position: "Managing Partner",
-      image: "/images/team/Saeed.jpg",
+      image: "/images/team/Siraj.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17",
         twitter: "#",
-        email: "#",
+        email: "s.ansari@prosperaksa.com",
       },
     },
     {
-      name: "Siraj Ahmed Ansari",
+      name: "Saeed A. Siddiqui",
       position: "Partner",
-      image: "/images/team/Siraj.jpg",
+      image: "/images/team/Saeed.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/saeed-a-siddiqui-bba09827",
         twitter: "#",
-        email: "#",
+        email: "S.siddiqui@prosperaksa.com",
       },
     },
     {
@@ -30,9 +30,9 @@ export function TeamSection() {
       position: "Director",
       image: "/images/team/Salman Ahmed.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/salman-ahmed-511237233",
         twitter: "#",
-        email: "#",
+        email: "s.ahmed@prosperaksa.com",
       },
     },
     {
@@ -42,10 +42,9 @@ export function TeamSection() {
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "#",
+        email: "inquire@prosperaksa.com",
       },
     },
-
   ];
 
   return (
@@ -131,6 +130,9 @@ export function TeamSection() {
                   {/* Social Links */}
                   <motion.a
                     href={member.social.linkedin}
+                    target={member.social.linkedin.startsWith("http") ? "_blank" : undefined}
+                    rel={member.social.linkedin.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={`${member.name} LinkedIn`}
                     whileHover={{ scale: 1.2, y: -2 }}
                     className="w-10 h-10 bg-gray-100 hover:bg-[#0077b5] rounded-full flex items-center justify-center transition-all duration-300"
                   >
@@ -140,17 +142,8 @@ export function TeamSection() {
                   </motion.a>
 
                   <motion.a
-                    href={member.social.twitter}
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-10 h-10 bg-gray-100 hover:bg-black rounded-full flex items-center justify-center transition-all duration-300"
-                  >
-                    <span className="text-gray-500 group-hover:text-white text-sm">
-                      𝕏
-                    </span>
-                  </motion.a>
-
-                  <motion.a
                     href={`mailto:${member.social.email}`}
+                    aria-label={`Email ${member.name}`}
                     whileHover={{ scale: 1.2, y: -2 }}
                     className="w-10 h-10 bg-gray-100 hover:bg-[#b62166] rounded-full flex items-center justify-center transition-all duration-300"
                   >
