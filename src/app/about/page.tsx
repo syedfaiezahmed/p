@@ -5,11 +5,13 @@ import { BreadcrumbSchema } from "../components/seo/JsonLd";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://prosperaksa.com";
 
 export const metadata: Metadata = {
-  title: "About Us | Premier Corporate Financial Advisory in Saudi Arabia",
+  title: "About Prospera | Corporate Financial Advisory in Saudi Arabia",
   description:
-    "Founded in 2017, Prospera Consulting is led by seasoned finance partners with decades of GCC experience in corporate restructuring, ZATCA e-invoicing, and fractional CFO leadership.",
+    "Founded in 2017, Prospera is led by seasoned finance partners with decades of GCC experience in corporate restructuring, ZATCA e-invoicing, and fractional CFO leadership.",
   keywords: [
-    "About Prospera KSA",
+    "About Prospera",
+    "Prospera KSA",
+    "Prospera Consulting",
     "Saudi Arabia Financial Advisors",
     "Siraj Ahmed Ansari Managing Partner",
     "Saeed A. Siddiqui Managing Partner",
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Prospera KSA | Premier Financial & Strategic Advisory",
+    title: "About Prospera | Corporate Financial & Strategic Advisory",
     description:
       "Meet the distinguished professionals driving Prospera's success across Saudi Arabia with decades of CFO and corporate finance expertise.",
     url: `${APP_URL}/about`,

@@ -7,19 +7,29 @@ interface OrganizationSchemaProps {
 export function OrganizationSchema({ url = "https://prosperaksa.com" }: OrganizationSchemaProps) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "AccountingService",
+    "@type": ["AccountingService", "FinancialService", "Corporation"],
     "@id": `${url}#organization`,
-    name: "Prospera KSA",
-    alternateName: ["Prospera Consulting", "Prospera Financial & Strategic Business Consulting"],
+    name: "Prospera",
+    legalName: "Prospera Consulting KSA",
+    alternateName: [
+      "Prospera KSA",
+      "Prospera Consulting",
+      "Prospera Financial Consulting",
+      "Prospera Saudi Arabia",
+      "Prospera Advisory",
+      "بروسبيرا",
+      "بروسبيرا السعودية",
+      "شركة بروسبيرا للاستشارات",
+    ],
     url: url,
     logo: {
       "@type": "ImageObject",
       url: `${url}/images/hero%20image.jpg`,
-      caption: "Prospera Consulting KSA",
+      caption: "Prospera Consulting KSA Logo",
     },
     image: `${url}/images/hero%20image.jpg`,
     description:
-      "Premier Saudi corporate advisory firm specializing in ZATCA e-invoicing Phase 2, SOCPA-compliant bookkeeping, fractional CFO consulting, and ERP digital transformation.",
+      "Prospera is a premier corporate financial advisory firm in Saudi Arabia specializing in ZATCA e-invoicing Phase 2, SOCPA-compliant bookkeeping, fractional CFO consulting, VAT tax strategy, and ERP digital transformation.",
     telephone: "+966557147386",
     email: "inquire@prosperaksa.com",
     priceRange: "$$",
@@ -43,6 +53,12 @@ export function OrganizationSchema({ url = "https://prosperaksa.com" }: Organiza
         closes: "18:00",
       },
     ],
+    brand: {
+      "@type": "Brand",
+      name: "Prospera",
+      alternateName: ["Prospera KSA", "Prospera Consulting", "بروسبيرا"],
+      logo: `${url}/images/hero%20image.jpg`,
+    },
     founder: [
       {
         "@type": "Person",
@@ -101,11 +117,25 @@ export function WebSiteSchema({ url = "https://prosperaksa.com" }: { url?: strin
     "@type": "WebSite",
     "@id": `${url}#website`,
     url: url,
-    name: "Prospera KSA",
-    alternateName: "Prospera Financial Consulting",
-    description: "Corporate financial advisory, bookkeeping, and ZATCA compliance in Saudi Arabia.",
+    name: "Prospera",
+    alternateName: [
+      "Prospera KSA",
+      "Prospera Consulting",
+      "Prospera Financial Consulting",
+      "بروسبيرا",
+    ],
+    description:
+      "Official website of Prospera - Premier corporate financial advisory, bookkeeping, and ZATCA compliance in Saudi Arabia.",
     publisher: {
       "@id": `${url}#organization`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${url}/services?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
     },
     inLanguage: ["en-US", "ar-SA"],
   };

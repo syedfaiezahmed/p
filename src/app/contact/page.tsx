@@ -5,11 +5,13 @@ import { BreadcrumbSchema } from "../components/seo/JsonLd";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://prosperaksa.com";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Book Executive Financial Consultation in Saudi Arabia",
+  title: "Contact Prospera | Book Executive Financial Consultation in Saudi Arabia",
   description:
     "Schedule a confidential 30-minute consultation with Prospera's managing partners. Inquire about ZATCA e-invoicing, bookkeeping, payroll, and fractional CFO advisory across Saudi Arabia.",
   keywords: [
-    "Contact Prospera KSA",
+    "Contact Prospera",
+    "Prospera Contact",
+    "Prospera KSA",
     "Financial Advisory Consultation Saudi Arabia",
     "Bookkeeping Consultation KSA",
     "Fractional CFO Meeting",
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Prospera KSA | Financial Advisory Consultation",
+    title: "Contact Prospera | Financial Advisory Consultation",
     description:
       "Connect directly with senior financial partners for corporate accounting, tax strategy, and CFO retainers in Saudi Arabia.",
     url: `${APP_URL}/contact`,
