@@ -1,131 +1,62 @@
-"use client";
+import { Metadata } from "next";
+import { DigitalServicesClient } from "./DigitalServicesClient";
+import { BreadcrumbSchema } from "@/app/components/seo/JsonLd";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { Footer } from "../../components/ui/footer";
-import { ConsultingService } from "@/lib/types/inquiryTypes";
-import { getStoredServices, fetchAllServices, EVENT_SERVICES_UPDATED } from "@/lib/stores/servicesStore";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://prosperaksa.com";
+
+export const metadata: Metadata = {
+  title: "Digital Finance Transformation & ERP Solutions in Saudi Arabia",
+  description:
+    "Enterprise ERP implementations, ZATCA Phase 2 electronic invoicing integrations, Power BI financial analytics, and process automation in Saudi Arabia.",
+  keywords: [
+    "Digital Finance Transformation Saudi Arabia",
+    "ERP Implementation KSA",
+    "ZATCA Phase 2 API Integration",
+    "Power BI Financial Reporting KSA",
+    "Accounting Automation Saudi Arabia",
+    "Odoo SAP QuickBooks KSA",
+  ],
+  alternates: {
+    canonical: "/services/digital",
+  },
+  openGraph: {
+    title: "Digital Finance Transformation & ERP | Prospera KSA",
+    description:
+      "Modernize your finance operations with cloud accounting, ZATCA integration, and Power BI dashboards in Saudi Arabia.",
+    url: `${APP_URL}/services/digital`,
+    siteName: "Prospera Consulting KSA",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: `${APP_URL}/images/ERP%20Implementation.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Prospera Digital Finance & ERP",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Digital Transformation & ERP | Prospera KSA",
+    description:
+      "Enterprise ERP implementation and automated financial intelligence in Saudi Arabia.",
+    images: [`${APP_URL}/images/ERP%20Implementation.jpg`],
+    creator: "@prosperaksa",
+  },
+};
 
 export default function DigitalServicesPage() {
-  const [services, setServices] = useState<ConsultingService[]>(() => {
-    return getStoredServices().filter(
-      (s) => s.active !== false && (s.categorySlug === "digital" || s.category.includes("Digital") || s.category.includes("Transformation") || s.category.includes("ERP") || s.category.includes("Automation") || s.category.includes("Analytics"))
-    );
-  });
-
-  useEffect(() => {
-    fetchAllServices().then((list) => {
-      const filtered = list.filter(
-        (s) => s.active !== false && (s.categorySlug === "digital" || s.category.includes("Digital") || s.category.includes("Transformation") || s.category.includes("ERP") || s.category.includes("Automation") || s.category.includes("Analytics"))
-      );
-      setServices(filtered);
-    });
-
-    const handleUpdate = (e: any) => {
-      const list = e.detail || getStoredServices();
-      const filtered = list.filter(
-        (s: any) => s.active !== false && (s.categorySlug === "digital" || s.category.includes("Digital") || s.category.includes("Transformation") || s.category.includes("ERP") || s.category.includes("Automation") || s.category.includes("Analytics"))
-      );
-      setServices(filtered);
-    };
-
-    window.addEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
-    return () => window.removeEventListener(EVENT_SERVICES_UPDATED, handleUpdate);
-  }, []);
+  const breadcrumbs = [
+    { name: "Home", url: `${APP_URL}/` },
+    { name: "Services", url: `${APP_URL}/services` },
+    { name: "Digital Transformation", url: `${APP_URL}/services/digital` },
+  ];
 
   return (
-    <div className="bg-white min-h-screen">
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-24 bg-gradient-to-br from-[#1c1032] via-[#2a1a4a] to-[#8a1650] text-white">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-          <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#f0c6d8] backdrop-blur-md mb-3 border border-white/20">
-            Technology & Systems Advisory
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white mb-3">
-            Digital Transformation & <span className="text-[#f0c6d8]">ERP Solutions</span>
-          </h1>
-          <div className="w-16 h-1 bg-[#f0c6d8] mx-auto my-3 rounded-full"></div>
-          <p className="text-white/85 text-sm sm:text-base max-w-2xl mx-auto">
-            Cloud accounting infrastructure, ZATCA Phase 2 API integrations, Power BI executive dashboards, and Robotic Process Automation (RPA).
-          </p>
-        </div>
-      </section>
-
-      {/* Core Services Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-4xl font-bold text-[#2a1a4a] mb-2">
-              Digital Practice Areas
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#2a1a4a] to-[#8a1650] mx-auto rounded-full mb-3"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-              Modernizing financial architectures to deliver automated, data-driven operational velocity.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {services.map((service, idx) => (
-              <motion.div
-                key={service.slug || idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (idx % 6) * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-t-[#2a1a4a]"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="rounded-md bg-[#ece6f5] px-2.5 py-1 text-[10px] font-bold text-[#2a1a4a] uppercase tracking-wider">
-                      {service.category}
-                    </span>
-                    <span className="text-xs font-semibold text-gray-500">
-                      {service.pricingTier || "Custom"}
-                    </span>
-                  </div>
-
-                  <Link href={`/services/${service.slug}`}>
-                    <h3 className="text-lg font-bold text-[#2a1a4a] hover:text-[#8a1650] transition-colors mb-2">
-                      {service.title}
-                    </h3>
-                  </Link>
-
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
-                    {service.shortDescription}
-                  </p>
-
-                  {service.deliverables && service.deliverables.length > 0 && (
-                    <ul className="space-y-1.5 mb-6 border-t border-gray-100 pt-3">
-                      {service.deliverables.slice(0, 3).map((item, dIdx) => (
-                        <li key={dIdx} className="flex items-start text-xs text-gray-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#2a1a4a] mt-0.5 mr-2 shrink-0" />
-                          <span className="truncate">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="pt-3 border-t border-gray-100">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2a1a4a] hover:text-[#8a1650] transition-colors"
-                  >
-                    <span>View Service Scope</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
+    <>
+      <BreadcrumbSchema items={breadcrumbs} />
+      <DigitalServicesClient />
+    </>
   );
 }

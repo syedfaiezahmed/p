@@ -20,9 +20,13 @@ import { MessageCircle } from "lucide-react";
 import { connectToDatabase } from "@/lib/db";
 import { Service } from "@/lib/models/Service";
 
+import { ServiceSchema, BreadcrumbSchema, FAQSchema } from "@/app/components/seo/JsonLd";
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://prosperaksa.com";
 
 async function getServiceBySlug(slug: string): Promise<ServiceDetail | null> {
   // 1. Try static dataset
@@ -110,13 +114,48 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const serviceUrl = `${APP_URL}/services/${slug}`;
+  const imageUrl = service.heroImage.startsWith("http")
+    ? service.heroImage
+    : `${APP_URL}${service.heroImage}`;
+
   return {
-    title: `${service.title} - Prospera Consulting KSA`,
+    title: `${service.title} | Prospera KSA Corporate Advisory`,
     description: service.shortDescription,
+    keywords: [
+      service.title,
+      `${service.title} Saudi Arabia`,
+      `${service.title} KSA`,
+      service.category,
+      "Corporate Financial Advisory KSA",
+      "ZATCA Compliance",
+      "Prospera Consulting",
+    ],
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
     openGraph: {
-      title: `${service.title} - Prospera Consulting KSA`,
+      title: `${service.title} | Prospera KSA`,
       description: service.shortDescription,
-      images: [service.heroImage],
+      url: serviceUrl,
+      siteName: "Prospera Consulting KSA",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} - Prospera Consulting KSA`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | Prospera KSA`,
+      description: service.shortDescription,
+      images: [imageUrl],
+      creator: "@prosperaksa",
     },
   };
 }
@@ -133,8 +172,24 @@ export default async function DynamicServicePage({ params }: Props) {
     .map((s) => servicesData[s])
     .filter(Boolean) as ServiceDetail[];
 
+  const breadcrumbs = [
+    { name: "Home", url: `${APP_URL}/` },
+    { name: "Services", url: `${APP_URL}/services` },
+    { name: service.title, url: `${APP_URL}/services/${slug}` },
+  ];
+
   return (
     <div className="bg-white min-h-screen">
+      {/* JSON-LD Schemas */}
+      <ServiceSchema
+        title={service.title}
+        description={service.shortDescription}
+        url={`${APP_URL}/services/${slug}`}
+        image={service.heroImage}
+        category={service.category}
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+      <FAQSchema faqs={service.faqs} />
       {/* Breadcrumb Bar */}
       <div className="bg-[#fbf9fd] border-b border-gray-200 py-3.5">
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">

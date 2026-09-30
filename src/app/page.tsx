@@ -16,6 +16,7 @@ import { Footer } from "./components/ui/footer";
 import TestimonialsSection from "./components/sections/TestimonialsSection";
 import { CuriousSection } from "./components/sections/CuriousSection";
 
+import { FAQSchema } from "./components/seo/JsonLd";
 import { getStoredServices, fetchAllServices, EVENT_SERVICES_UPDATED } from "@/lib/stores/servicesStore";
 import { useEffect } from "react";
 
@@ -135,6 +136,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white">
+      <FAQSchema faqs={faqs} />
       <HeroCarousel items={carouselItems} />
       <StatsSection stats={stats} />
       <ImageContentSection />
