@@ -20,7 +20,7 @@ export function Footer() {
       items: [
         {
           icon: <FaMapMarkerAlt className="text-[#b62166]" />,
-          text: "123 Financial District, Riyadh, Saudi Arabia",
+          text: "Kingdom of Saudi Arabia",
         },
         {
           icon: <FaPhoneAlt className="text-[#b62166]" />,

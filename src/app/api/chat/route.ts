@@ -9,7 +9,7 @@ import { servicesData } from "@/data/servicesData";
 const PROSPERA_SYSTEM_KNOWLEDGE = `
 YOU ARE THE OFFICIAL AI LEAD CORPORATE ADVISOR FOR "PROSPERA KSA" (Prospera Financial & Strategic Business Consulting).
 Website: https://prosperaksa.com
-Location: Riyadh & Jeddah, Kingdom of Saudi Arabia
+Location: Kingdom of Saudi Arabia
 Official Hotline / WhatsApp: +966 557 147 386
 Official Inquiries Email: inquire@prosperaksa.com
 Operating Hours: Sunday – Thursday: 9:00 AM – 6:00 PM AST
@@ -217,7 +217,7 @@ function generateSmartFallbackReply(qRaw: string, settings: any): string {
   }
 
   if (q.includes("contact") || q.includes("phone") || q.includes("call") || q.includes("email") || q.includes("location") || q.includes("office") || q.includes("address") || q.includes("whatsapp")) {
-    return `📞 **Official Prospera KSA Contact Information:**\n\n• **Phone / WhatsApp:** [+966 557 147 386](https://wa.me/966557147386)\n• **Official Email:** [inquire@prosperaksa.com](mailto:inquire@prosperaksa.com)\n• **Headquarters:** Riyadh & Jeddah, Kingdom of Saudi Arabia\n• **Business Hours:** Sunday – Thursday: 9:00 AM – 6:00 PM AST\n\nWe guarantee a consultation response within 24 business hours.`;
+    return `📞 **Official Prospera KSA Contact Information:**\n\n• **Phone / WhatsApp:** [+966 557 147 386](https://wa.me/966557147386)\n• **Official Email:** [inquire@prosperaksa.com](mailto:inquire@prosperaksa.com)\n• **Headquarters:** Kingdom of Saudi Arabia\n• **Business Hours:** Sunday – Thursday: 9:00 AM – 6:00 PM AST\n\nWe guarantee a consultation response within 24 business hours.`;
   }
 
   if (q.includes("team") || q.includes("partner") || q.includes("who are you") || q.includes("about") || q.includes("experience")) {

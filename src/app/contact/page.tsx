@@ -147,7 +147,7 @@ function ContactFormContent() {
             </h1>
             <div className="w-20 h-1 bg-gradient-to-r from-[#f0c6d8] to-white mx-auto mb-4 rounded-full"></div>
             <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-              Our financial, strategy, and digital advisory experts in Riyadh are
+              Our financial, strategy, and digital advisory experts are
               ready to accelerate your growth.
             </p>
           </motion.div>
@@ -179,7 +179,7 @@ function ContactFormContent() {
               <div>
                 <p className="text-xs text-gray-500 font-medium">Headquarters</p>
                 <p className="text-sm font-semibold text-[#2a1a4a]">
-                  Riyadh, Kingdom of Saudi Arabia
+                  Kingdom of Saudi Arabia
                 </p>
               </div>
             </div>
@@ -294,7 +294,7 @@ function ContactFormContent() {
                         Location
                       </h4>
                       <p className="text-base text-[#2a1a4a] font-bold">
-                        Riyadh, Kingdom of Saudi Arabia
+                        Kingdom of Saudi Arabia
                       </p>
                       <p className="text-xs text-gray-500 mt-1">
                         Serving clients across the GCC region
