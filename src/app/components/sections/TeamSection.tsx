@@ -17,7 +17,7 @@ export function TeamSection() {
     },
     {
       name: "Saeed A. Siddiqui",
-      position: "Partner",
+      position: "Managing Partner",
       image: "/images/team/Saeed.jpg",
       social: {
         linkedin: "https://www.linkedin.com/in/saeed-a-siddiqui-bba09827",

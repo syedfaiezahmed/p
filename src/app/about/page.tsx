@@ -474,7 +474,7 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Partner - Saeed A. Siddiqui */}
+            {/* Managing Partner - Saeed A. Siddiqui */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -491,7 +491,7 @@ export default function AboutPage() {
               <div className="relative h-72 overflow-hidden">
                 <Image
                   src="/images/team/Saeed.jpg"
-                  alt="Saeed A. Siddiqui - Partner at Prospera Consulting"
+                  alt="Saeed A. Siddiqui - Managing Partner at Prospera Consulting"
                   fill
                   className="object-cover object-top"
                   quality={90}
@@ -501,7 +501,7 @@ export default function AboutPage() {
                   <h3 className="text-xl sm:text-2xl font-bold text-white">
                     Saeed A. Siddiqui
                   </h3>
-                  <p className="text-[#f0c6d8] text-sm">Partner</p>
+                  <p className="text-[#f0c6d8] text-sm">Managing Partner</p>
                 </div>
                 <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
                   30+ Years
