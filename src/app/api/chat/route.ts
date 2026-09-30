@@ -23,8 +23,8 @@ CORE IDENTITY & TONE:
 ABOUT PROSPERA KSA:
 - Founded: 2017 in Saudi Arabia.
 - Executive Leadership:
-  1. Siraj Ahmed Ansari — Managing Partner (20+ Years experience in tax, corporate accounting & ERP)
-  2. Saeed A. Siddiqui — Managing Partner (30+ Years experience, former CFO for 15 years in GCC)
+  1. Saeed A. Siddiqui — Managing Partner (30+ Years experience, former CFO for 15 years in GCC)
+  2. Siraj Ahmed Ansari — Managing Partner (20+ Years experience in tax, corporate accounting & ERP)
   3. Salman Ahmed — Director (14+ Years experience in business analytics & Power BI)
 
 KEY PRACTICE AREAS & PACKAGES:

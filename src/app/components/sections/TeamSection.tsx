@@ -6,16 +6,6 @@ import Image from "next/image";
 export function TeamSection() {
   const teamMembers = [
     {
-      name: "Siraj Ahmed Ansari",
-      position: "Managing Partner",
-      image: "/images/team/Siraj.jpg",
-      social: {
-        linkedin: "https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17",
-        twitter: "#",
-        email: "s.ansari@prosperaksa.com",
-      },
-    },
-    {
       name: "Saeed A. Siddiqui",
       position: "Managing Partner",
       image: "/images/team/Saeed.jpg",
@@ -23,6 +13,16 @@ export function TeamSection() {
         linkedin: "https://www.linkedin.com/in/saeed-a-siddiqui-bba09827",
         twitter: "#",
         email: "S.siddiqui@prosperaksa.com",
+      },
+    },
+    {
+      name: "Siraj Ahmed Ansari",
+      position: "Managing Partner",
+      image: "/images/team/Siraj.jpg",
+      social: {
+        linkedin: "https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17",
+        twitter: "#",
+        email: "s.ansari@prosperaksa.com",
       },
     },
     {

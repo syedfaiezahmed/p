@@ -387,103 +387,12 @@ export function AboutClient() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Managing Partner - Siraj Ahmed Ansari */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col"
-            >
-              <div className="relative h-72 overflow-hidden">
-                <Image
-                  src="/images/team/Siraj.jpg"
-                  alt="Siraj Ahmed Ansari - Managing Partner at Prospera Consulting"
-                  fill
-                  className="object-cover object-top"
-                  quality={90}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    Siraj Ahmed Ansari
-                  </h3>
-                  <p className="text-[#f0c6d8] text-sm">Managing Partner</p>
-                </div>
-                <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
-                  20+ Years
-                </div>
-              </div>
-              <div className="p-4 flex-grow flex flex-col justify-between">
-                <div>
-                  <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                    Results-driven finance professional with extensive experience
-                    in strategic financial analysis, taxation, and executive-level
-                    financial management.
-                  </p>
-                  <div className="space-y-2 mb-4">
-                    <h4 className="font-semibold text-[#2a1a4a] text-sm sm:text-base">
-                      Expertise
-                    </h4>
-                    {[
-                      "Strategic Financial Analysis",
-                      "Taxation",
-                      "ERP Implementation",
-                      "Regulatory Compliance",
-                    ].map((skill, i) => (
-                      <div key={i} className="flex items-center">
-                        <svg
-                          className="w-3 h-3 sm:w-4 sm:h-4 text-[#8a1650] mr-1 sm:mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        <span className="text-xs sm:text-sm text-gray-700">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex items-center gap-2">
-                  <a
-                    href="https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 py-1.5 px-3 bg-gray-50 hover:bg-[#0077b5] text-gray-700 hover:text-white rounded-lg text-xs font-medium text-center transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <span className="font-bold">in</span> LinkedIn
-                  </a>
-                  <a
-                    href="mailto:s.ansari@prosperaksa.com"
-                    className="py-1.5 px-3 bg-gray-50 hover:bg-[#8a1650] text-gray-700 hover:text-white rounded-lg text-xs font-medium transition-colors"
-                    title="Email Siraj Ahmed Ansari"
-                  >
-                    ✉
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
             {/* Managing Partner - Saeed A. Siddiqui */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -5 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
+              transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
               viewport={{ once: true, margin: "0px 0px -50px 0px" }}
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col"
             >
@@ -557,6 +466,97 @@ export function AboutClient() {
                     href="mailto:S.siddiqui@prosperaksa.com"
                     className="py-1.5 px-3 bg-gray-50 hover:bg-[#8a1650] text-gray-700 hover:text-white rounded-lg text-xs font-medium transition-colors"
                     title="Email Saeed A. Siddiqui"
+                  >
+                    ✉
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Managing Partner - Siraj Ahmed Ansari */}
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.1,
+                type: "spring",
+                stiffness: 100,
+              }}
+              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col"
+            >
+              <div className="relative h-72 overflow-hidden">
+                <Image
+                  src="/images/team/Siraj.jpg"
+                  alt="Siraj Ahmed Ansari - Managing Partner at Prospera Consulting"
+                  fill
+                  className="object-cover object-top"
+                  quality={90}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    Siraj Ahmed Ansari
+                  </h3>
+                  <p className="text-[#f0c6d8] text-sm">Managing Partner</p>
+                </div>
+                <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
+                  20+ Years
+                </div>
+              </div>
+              <div className="p-4 flex-grow flex flex-col justify-between">
+                <div>
+                  <p className="text-gray-600 mb-3 text-sm sm:text-base">
+                    Results-driven finance professional with extensive experience
+                    in strategic financial analysis, taxation, and executive-level
+                    financial management.
+                  </p>
+                  <div className="space-y-2 mb-4">
+                    <h4 className="font-semibold text-[#2a1a4a] text-sm sm:text-base">
+                      Expertise
+                    </h4>
+                    {[
+                      "Strategic Financial Analysis",
+                      "Taxation",
+                      "ERP Implementation",
+                      "Regulatory Compliance",
+                    ].map((skill, i) => (
+                      <div key={i} className="flex items-center">
+                        <svg
+                          className="w-3 h-3 sm:w-4 sm:h-4 text-[#8a1650] mr-1 sm:mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span className="text-xs sm:text-sm text-gray-700">
+                          {skill}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-gray-100 flex items-center gap-2">
+                  <a
+                    href="https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 py-1.5 px-3 bg-gray-50 hover:bg-[#0077b5] text-gray-700 hover:text-white rounded-lg text-xs font-medium text-center transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span className="font-bold">in</span> LinkedIn
+                  </a>
+                  <a
+                    href="mailto:s.ansari@prosperaksa.com"
+                    className="py-1.5 px-3 bg-gray-50 hover:bg-[#8a1650] text-gray-700 hover:text-white rounded-lg text-xs font-medium transition-colors"
+                    title="Email Siraj Ahmed Ansari"
                   >
                     ✉
                   </a>

@@ -62,15 +62,15 @@ export function OrganizationSchema({ url = "https://prosperaksa.com" }: Organiza
     founder: [
       {
         "@type": "Person",
-        name: "Siraj Ahmed Ansari",
-        jobTitle: "Managing Partner",
-        sameAs: "https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17",
-      },
-      {
-        "@type": "Person",
         name: "Saeed A. Siddiqui",
         jobTitle: "Managing Partner",
         sameAs: "https://www.linkedin.com/in/saeed-a-siddiqui-bba09827",
+      },
+      {
+        "@type": "Person",
+        name: "Siraj Ahmed Ansari",
+        jobTitle: "Managing Partner",
+        sameAs: "https://www.linkedin.com/in/siraj-ahmed-ansari-68056b17",
       },
       {
         "@type": "Person",
