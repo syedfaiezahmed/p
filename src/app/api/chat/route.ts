@@ -26,7 +26,6 @@ ABOUT PROSPERA KSA:
   1. Siraj Ahmed Ansari — Managing Partner (20+ Years experience in tax, corporate accounting & ERP)
   2. Saeed A. Siddiqui — Managing Partner (30+ Years experience, former CFO for 15 years in GCC)
   3. Salman Ahmed — Director (14+ Years experience in business analytics & Power BI)
-  4. Mohammed Ali — Director (20+ Years experience in tax strategy & audits)
 
 KEY PRACTICE AREAS & PACKAGES:
 1. Bookkeeping & Accounting Services (SOCPA & ZATCA Compliant):
@@ -221,7 +220,7 @@ function generateSmartFallbackReply(qRaw: string, settings: any): string {
   }
 
   if (q.includes("team") || q.includes("partner") || q.includes("who are you") || q.includes("about") || q.includes("experience")) {
-    return `🏛️ **About Prospera Consulting KSA:**\n\nFounded in 2017, Prospera is led by seasoned partners with decades of regional expertise:\n• **Siraj Ahmed Ansari** (Managing Partner) — 20+ Years in corporate tax & ERP.\n• **Saeed A. Siddiqui** (Managing Partner) — 30+ Years experience, 15 years as CFO.\n• **Salman Ahmed** (Director) — 14+ Years in business analytics & Power BI.\n• **Mohammed Ali** (Director) — 20+ Years in tax strategy & audits.\n\n👉 [Read Our Full Corporate Story](/about)`;
+    return `🏛️ **About Prospera Consulting KSA:**\n\nFounded in 2017, Prospera is led by seasoned partners with decades of regional expertise:\n• **Siraj Ahmed Ansari** (Managing Partner) — 20+ Years in corporate tax & ERP.\n• **Saeed A. Siddiqui** (Managing Partner) — 30+ Years experience, 15 years as CFO.\n• **Salman Ahmed** (Director) — 14+ Years in business analytics & Power BI.\n\n👉 [Read Our Full Corporate Story](/about)`;
   }
 
   // Default Consultation Welcome

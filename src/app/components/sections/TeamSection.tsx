@@ -35,16 +35,6 @@ export function TeamSection() {
         email: "s.ahmed@prosperaksa.com",
       },
     },
-    {
-      name: "Mohammed Ali",
-      position: "Director",
-      image: "/images/team/Mohammed Ali.jpg",
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "inquire@prosperaksa.com",
-      },
-    },
   ];
 
   return (
@@ -87,7 +77,7 @@ export function TeamSection() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}

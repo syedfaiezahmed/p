@@ -78,11 +78,6 @@ export function OrganizationSchema({ url = "https://prosperaksa.com" }: Organiza
         jobTitle: "Director",
         sameAs: "https://www.linkedin.com/in/salman-ahmed-511237233",
       },
-      {
-        "@type": "Person",
-        name: "Mohammed Ali",
-        jobTitle: "Director",
-      },
     ],
     sameAs: [
       "https://www.linkedin.com/company/prospera-ksa",

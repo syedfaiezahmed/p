@@ -386,7 +386,7 @@ export function AboutClient() {
             </motion.div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Managing Partner - Siraj Ahmed Ansari */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
@@ -650,88 +650,6 @@ export function AboutClient() {
                     title="Email Salman Ahmed"
                   >
                     ✉
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Director - Mohammed Ali */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -5 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.3,
-                type: "spring",
-                stiffness: 100,
-              }}
-              viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col"
-            >
-              <div className="relative h-72 overflow-hidden">
-                <Image
-                  src="/images/team/Mohammed Ali.jpg"
-                  alt="Mohammed Ali - Director at Prospera Consulting"
-                  fill
-                  className="object-cover object-top"
-                  quality={90}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    Mohammed Ali
-                  </h3>
-                  <p className="text-[#f0c6d8] text-sm">Director</p>
-                </div>
-                <div className="absolute top-4 right-4 bg-white text-[#8a1650] px-3 py-0.5 rounded-full text-xs font-bold shadow-sm">
-                  20+ Years
-                </div>
-              </div>
-              <div className="p-4 flex-grow flex flex-col justify-between">
-                <div>
-                  <p className="text-gray-600 mb-3 text-sm sm:text-base">
-                    Highly experienced finance professional with over 20 years of
-                    expertise in tax, accounting, auditing and financial
-                    management.
-                  </p>
-                  <div className="space-y-2 mb-4">
-                    <h4 className="font-semibold text-[#2a1a4a] text-sm sm:text-base">
-                      Expertise
-                    </h4>
-                    {[
-                      "Tax Strategy",
-                      "Accounting",
-                      "Auditing",
-                      "Financial Management",
-                    ].map((skill, i) => (
-                      <div key={i} className="flex items-center">
-                        <svg
-                          className="w-3 h-3 sm:w-4 sm:h-4 text-[#8a1650] mr-1 sm:mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        <span className="text-xs sm:text-sm text-gray-700">
-                          {skill}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="pt-3 border-t border-gray-100 flex items-center gap-2">
-                  <a
-                    href="mailto:inquire@prosperaksa.com"
-                    className="flex-1 py-1.5 px-3 bg-gray-50 hover:bg-[#8a1650] text-gray-700 hover:text-white rounded-lg text-xs font-medium text-center transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    ✉ Contact Mohammed Ali
                   </a>
                 </div>
               </div>
